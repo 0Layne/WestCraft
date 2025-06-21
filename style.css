@@ -92,7 +92,7 @@ html {
 
 @media (max-width: 600px) {
   .hero {
-    padding: 12rem 1rem;
+    padding: 10rem 1rem;
     background-position: center top;
   }
 
