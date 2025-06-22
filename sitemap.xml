@@ -20,16 +20,5 @@
     <changefreq>monthly</changefreq>
   </url>
 
-  <url>
-    <loc>https://azwestcraft.com/index.html#aboutussection</loc>
-    <priority>0.70</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://azwestcraft.com/index.html#locations-section</loc>
-    <priority>0.70</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
 </urlset>
+
