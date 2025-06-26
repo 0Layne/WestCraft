@@ -1,51 +1,163 @@
-/*hamburger menu*/
-const navMenu = document.getElementById('nav-menu'),
-  toggleMenu = document.getElementById('nav-toggle'),
-  closeMenu = document.getElementById('nav-close')
+// header Java
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.header');
+  const logos = document.querySelectorAll('.logo');
+  const hero = document.querySelector('.hero-section');
+  let lastScrollY = window.scrollY;
+  let observer;
 
-/*SHOW*/
-toggleMenu.addEventListener('click', () => {
-  navMenu.classList.toggle('show')
-})
+  const maxScroll = 650;
+  const maxPadding = 64;
+  const minPadding = 30;
+  const maxLogo = 90;
+  const minLogo = 40;
 
-/*HIDDEN*/
-closeMenu.addEventListener('click', () => {
-  navMenu.classList.remove('show')
-})
+  let isLargeScreen = window.innerWidth > 900;
 
-/*===== ACTIVE AND REMOVE MENU =====*/
-const navLink = document.querySelectorAll('.nav__link');
+  function applyDesktopHeaderBehavior() {
+    window.addEventListener('scroll', onScrollResizeHeader);
+  window.addEventListener('scroll', onScrollHideHeader);
 
-function linkAction() {
-  /*Active link*/
-  navLink.forEach(n => n.classList.remove('active'));
-  this.classList.add('active');
+    observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) {
+    header.classList.add('header--fixed');
+      } else {
+    header.classList.remove('header--fixed');
+      }
+    }, {threshold: 0 });
 
-  /*Remove menu mobile*/
-  navMenu.classList.remove('show')
-}
-navLink.forEach(n => n.addEventListener('click', linkAction));
+  observer.observe(hero);
+  }
 
+  function onScrollResizeHeader() {
+    const scrollY = Math.min(window.scrollY, maxScroll);
+  const scrollRatio = scrollY / maxScroll;
+  const currentPadding = maxPadding - (maxPadding - minPadding) * scrollRatio;
+  const currentLogo = maxLogo - (maxLogo - minLogo) * scrollRatio;
 
-/*nav bar sliding*/
-let lastScrollY = window.scrollY;
-const header = document.querySelector('.header');
+  header.style.padding = `${currentPadding}px 1rem`;
+    logos.forEach(logo => logo.style.height = `${currentLogo}px`);
+  }
 
-window.addEventListener('scroll', () => {
-  const currentScroll = window.scrollY;
-
-  if (currentScroll > 400) {
-    if (currentScroll > lastScrollY) {
-      // Scrolling down
-      header.classList.add('header--hide');
+  function onScrollHideHeader() {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 1100) {
+      if (currentScroll > lastScrollY) {
+    header.classList.add('header--hide');
+      } else {
+    header.classList.remove('header--hide');
+      }
     } else {
-      // Scrolling up
-      header.classList.remove('header--hide');
+    header.classList.remove('header--hide');
+    }
+  lastScrollY = currentScroll;
+  }
+
+  function applyMobileHeaderBehavior() {
+    header.style.padding = '1rem 1rem';
+
+    observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) {
+    header.classList.add('header--fixed');
+      } else {
+    header.classList.remove('header--fixed');
+      }
+    }, {
+    rootMargin: '0px',
+  threshold: 0
+    });
+
+  observer.observe(hero);
+  }
+
+  function cleanup() {
+    if (observer) observer.disconnect();
+  window.removeEventListener('scroll', onScrollResizeHeader);
+  window.removeEventListener('scroll', onScrollHideHeader);
+  header.classList.remove('header--fixed', 'header--hide');
+  header.style.padding = '';
+    logos.forEach(logo => logo.style.height = '');
+  }
+
+  function checkWidthAndApplyBehavior() {
+    const nowLarge = window.innerWidth > 900;
+  if (nowLarge && !isLargeScreen) {
+    cleanup();
+  isLargeScreen = true;
+  applyDesktopHeaderBehavior();
+    } else if (!nowLarge && isLargeScreen) {
+    cleanup();
+  isLargeScreen = false;
+  applyMobileHeaderBehavior();
     }
   }
 
-  lastScrollY = currentScroll;
+  // Initial run
+  isLargeScreen ? applyDesktopHeaderBehavior() : applyMobileHeaderBehavior();
+
+  window.addEventListener('resize', checkWidthAndApplyBehavior);
+
+  // Hamburger menu logic
+  const toggleMenu = document.getElementById('nav-toggle');
+  const closeMenu = document.getElementById('nav-close');
+  const navMenu = document.getElementById('nav-menu');
+
+  toggleMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+
+  closeMenu.addEventListener('click', () => {
+    navMenu.classList.remove('show');
+  });
+
+  const navLink = document.querySelectorAll('.nav__link');
+  navLink.forEach(n =>
+  n.addEventListener('click', function () {
+    navLink.forEach(n => n.classList.remove('active'));
+  this.classList.add('active');
+  navMenu.classList.remove('show');
+    })
+  );
+
+  // ScrollTo Section
+  window.scrollToSection = function (sectionClass) {
+    const section = document.querySelector(`.${sectionClass}`);
+    if (section) {
+      const offset = 130;
+      const sectionPosition = section.offsetTop - offset;
+      const currentPosition = window.scrollY;
+      const distance = sectionPosition - currentPosition;
+      const duration = 1000;
+      const startTime = performance.now();
+
+      function animateScroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeInOutQuad =
+          progress < 0.5
+            ? 2 * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+        window.scrollTo(0, currentPosition + distance * easeInOutQuad);
+
+        if (progress < 1) {
+          requestAnimationFrame(animateScroll);
+        }
+      }
+
+      requestAnimationFrame(animateScroll);
+    }
+  };
 });
+
+
+
+
+
+
+
+
+
+
 
 
 
