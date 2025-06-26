@@ -322,7 +322,7 @@ html {
   cursor: pointer;
   position: absolute;
   bottom: 8vh;
-  left: 48.6%;
+  left: 49%;
   transform: translateX(-50%);
   width: 45px;
   height: 45px;
@@ -366,6 +366,7 @@ html {
     display: none;
   }
 }
+
 
 
 
