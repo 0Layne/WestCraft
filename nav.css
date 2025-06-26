@@ -177,7 +177,7 @@ img {
   }
 
   #nav-social {
-    margin-top: 25vh;
+    margin-top: 35vh;
   }
 
   .nav-social {
@@ -186,9 +186,13 @@ img {
   }
 
   .nav__menu {
-    margin-top: 15vh;
     position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
     display: flex;
+    gap: 2rem;
+    /* or whatever your spacing is */
   }
 }
 
@@ -307,13 +311,12 @@ a[href^="tel"] {
 .nav__menu {
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 35%;
   transform: translateX(-50%);
   display: flex;
   gap: 2rem;
   /* or whatever your spacing is */
 }
-
 .nav__menu li:hover {
   transform: scale(1.1);
 }
@@ -609,7 +612,7 @@ a[href^="tel"] {
 footer {
   background: #1e293b;
   color: white;
-  padding: 40px 20px;
+  padding: 100px 20px;
 }
 
 .footer-grid {
@@ -649,6 +652,8 @@ footer {
 
 .footer-logo {
   width: 30vh;
+  margin-left: 20vh;
+  margin-right: 20vh;
 }
 .name-footer{
   font-size: 2.3rem;
@@ -670,7 +675,9 @@ footer {
   font-size: 1.8rem;
   text-decoration: none;
 }
-
+.socials a:hover{
+  transform: scale(1.1);
+}
 .footer-title-line{
   width: 3rem;
   height: 2px;
