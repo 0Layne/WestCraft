@@ -48,36 +48,163 @@ html {
 
 
 
-.hero {
-  background: linear-gradient(rgba(57, 57, 57, 0.6), rgba(0, 0, 0, 0.7)),
-    url('picture/arizona5.jpg') center/cover no-repeat;
-  color: #fff;
-  text-align: center;
-  padding: 15rem 1.5rem;
-  height: 100%;
+.hero-wrapper {
+  position: relative;
+}
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #111827, #1f2937);
+  padding: 4rem 5rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  position: relative;
+  /* important for absolute positioning */
+  overflow: hidden;
+  /* prevents glow from bleeding outside */
 }
 
-.hero-content {
-  margin: 0 auto;
-  text-align: center;
+/* White glow at bottom right */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  right: -110px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.122) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.hero-content h1 {
+
+.hero-images {
+  flex: 1;
+  max-width: 45%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 360px;
+}
+
+.image2 {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.image1 {
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  width: 50%;
+  max-width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.image1:hover,
+.image2:hover {
+  transform: scale(1.03);
+}
+
+/* Gray Box Below Image 1 */
+.box-below {
+  position: absolute;
+  top: calc(62px + 50% + 2vh);
+  left: -20px;
+  width: 27%;
+  max-width: 250px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.193);
+  /* transparent gray */
+  border-radius: 8px;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.box-below:hover {
+  transform: scale(1.03);
+}
+
+/* Gray Box to the Left of Image 2 */
+.box-left {
+  position: absolute;
+  left: calc(-2vh - 80px);
+  bottom: 0;
+  width: 80px;
+  height: 100px;
+  background-color: rgba(107, 114, 128, 0.2);
+  /* transparent gray */
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 50%;
+}
+
+.hero-text h2 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.hero-text h1 {
   font-size: 3rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
+  font-weight: 800;
+  margin: 0.5rem 0 1rem;
+  color: #ffffff;
 }
 
-.hero p {
-  max-width: 600px;
-  margin: 0 auto 2.5rem;
+.hero-text p {
   font-size: 1rem;
   line-height: 1.6;
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
 }
+
+.features {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.features li {
+  margin-bottom: 0.5rem;
+  color: #f87171;
+  font-weight: 600;
+}
+
+.trust-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.trust-info img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
 
 .cta {
   background: #1e293b; 
   color: white;
+  border: 2px solid white;
   padding: 1rem 2rem;
   text-decoration: none;
   border-radius: 30px;
@@ -88,26 +215,90 @@ html {
 .cta:hover {
   background: #2d3a45;
   box-shadow: 0 10px 25px #1e272e;
+  border: 2px solid rgb(202, 200, 200);
 }
-
-@media (max-width: 600px) {
-  .hero {
-    padding: 9rem 1rem;
-    background-position: center top;
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+    padding-top: 10px;
   }
 
-  .hero-content h1 {
-    font-size: 2rem;
+  .hero-images,
+  .hero-text {
+    max-width: 100%;
+    margin: 0 auto;
   }
 
-  .hero p {
+  .hero-images {
+    margin: 0 auto;
+    justify-content: center;
+    min-height: 270px !important;
+  }
+
+  .image2 {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .image1 {
+    top: -10px;
+    left: -10px;
+    max-width: 160px;
+  }
+
+  .box-below,
+  .box-left {
+    display: none;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+    margin: 0 auto;
+  }
+
+  .hero-text h2 {
+    font-size: 1.3rem;
+  }
+  .why-choose{
+    margin-top: 15vh;
+  }
+}
+@media (max-width: 768px) {
+  .hero-section{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .cta{
+    margin-bottom: 15vh;
+  }
+  .image2 {
+    max-width: 170px;
+    left: 50px;
+  }
+
+  .hero-images{
+    padding: 0px;
+    margin: 0 auto;
+  }
+  .image1 {
+    max-width: 90px;
+    top: 15px;
+    left: -45px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .hero-text p {
     font-size: 0.95rem;
-    padding: 0 1rem;
-  }
-
-  .cta {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
+    margin-bottom: 5px;
   }
 }
 
@@ -121,16 +312,17 @@ html {
 
 
 /* Scroll Arrow - always centered */
-.section-border{
+.section-border {
   height: 0.1px;
 }
+
 .scroll-arrow {
   font-size: 1.3rem;
   color: white;
   cursor: pointer;
   position: absolute;
-  bottom: 10vh;
-  left: 49%;
+  bottom: 8vh;
+  left: 48.6%;
   transform: translateX(-50%);
   width: 45px;
   height: 45px;
@@ -168,10 +360,12 @@ html {
     transform: translateX(-50%) translateY(-5px);
   }
 }
+
 @media (max-width: 768px) {
   .scroll-arrow {
     display: none;
-  }}
+  }
+}
 
 
 
