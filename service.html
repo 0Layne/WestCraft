@@ -26,58 +26,58 @@
 </head>
 
 <body>
-  <header class="header">
-    <a href="#" class="header__logo"><img src="picture/WESTCRAFT-white.png" alt="WestCraft Logo"
-        class="logo-mobile"><span>WestCraft</span></a>
-  
-  
-    <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
-  
-    <nav class="nav" id="nav-menu">
-      <div class="nav__content bd-grid">
-  
-        <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
-  
-        <div class="header-left">
-          <img src="picture/WESTCRAFT-white.png" alt="WestCraft Logo" class="logo" />
-          <p class="head-title">WestCraft</p>
-        </div>
-  
-        <div class="nav__menu">
-          <ul class="nav__list">
-            <li class="nav__item"><a href="index.html" target="_blank" class="nav__link active">Home</a></li>
-            <li class="nav__item"><a href="index.html#aboutussection" target="_blank" class="nav__link">About</a></li>
-            <li class="nav__item"><a href="service.html" class="nav__link">Service</a></li>
-            <li class="nav__item"><a href="index.html#locations-section" target="_blank" class="nav__link">Location</a></li>
-            <li class="nav__item"><a href="contact.html" target="_blank" class="nav__link">Contact</a></li>
-          </ul>
-        </div>
-  
-        <div class="nav-social">
-          <p class="email">estimate@azwestcraft.com</p>
-          <hr class="header-line">
-          <p class="phone">(623) 414-0653</p>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main class="services-page">
-  
-    <!-- Hero/Home Section -->
-    <section class="home-hero">
-      <div class="hero-overlay">
-        <h1 class="title-animate">Tailored Luxury, Crafted for You.</h1>
-        <p class="title-animate">Exquisite custom homes designed to match your vision — built with precision, luxury, and craftsmanship.</p>
-      </div>
-      <img src="picture/arizona3.jpg" alt="Luxury Custom Home" class="hero-image" />
-    </section>
-  
-    <div class="section-border">
-      <div class="scroll-arrow" onclick="scrollToSection('scrolltome')">
-        <i class="fa-solid fa-arrow-down" style="color: white;"></i>
-      </div>
+  <!-- Hero Section -->
+<section class="hero-wrapper">
+  <section class="hero-section">  
+    <div class="hero-text">
+      <h2>Tailored Luxury, Crafted for You</h2>
+      <p>Exquisite custom homes designed to match your vision — from Scottsdale to Tahoe,
+      Camelback to Hawaii</p>
     </div>
+  </section>
+</section>
+    <!-- Header -->
+    <header class="header" id="main-header">
+      <a href="#" class="header__logo"><img src="picture/azwestcraft-logo-white.png" alt="WestCraft Logo"
+          class="logo-mobile"></a>
+  
+      <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+  
+      <nav class="nav" id="nav-menu">
+        <div class="nav__content bd-grid">
+  
+          <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+  
+          <div class="header-left">
+            <img src="picture/azwestcraft-logo-white.png" alt="WestCraft Logo" class="logo" />
+          </div>
+  
+          <div class="nav__menu">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="index.html" class="nav__link active">Home</a></li>
+              <li class="nav__item"><a href="#aboutussection" class="nav__link">About</a></li>
+              <li class="nav__item"><a href="service.html" target="_blank" class="nav__link">Service</a></li>
+              <li class="nav__item"><a href="index.html#locations-section" class="nav__link">Location</a></li>
+              <li class="nav__item"><a href="contact.html" target="_blank" class="nav__link">Contact</a></li>
+            </ul>
+          </div>
+  
+          <div class="nav-social" id="nav-social">
+            <p class="email">estimate@azwestcraft.com</p>
+            <hr class="header-line">
+            <p class="phone"><a href="tel:5551234567">(623) 414-0653</a></p>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </section>
+  
+  <!--scroll down arrow-->
+  <div class="section-border">
+    <div class="scroll-arrow" onclick="scrollToSection('scrolltome')">
+      <i class="fa-solid fa-arrow-down" style="color: white;"></i>
+    </div>
+  </div>
   
 
 
@@ -212,23 +212,16 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="footer-logo"><img src="picture/WESTCRAFT-white.png" alt="WestCraft Logo"></div>
-        <p class="name-footer">WestCraft</p>
-        <p class="copyright-footer">&copy; 2025 All rights reserved.</p>
+        <div class="footer-logo"><img src="picture/azwestcraft-logo-white.png" alt="WestCraft Logo"></div>
       </div>
       <div class="footer-col">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#aboutussection">About</a></li>
-          <li><a href="service.html" target="_blank">Service</a></li>
-          <li><a href="contact.html" target="_blank">Contact</a></li>
-          <li><a href="#locations-section">Region</a></li>
-        </ul>
+        <h2>WestCraft</h2>
+        <p class="copyright-footer">&copy; 2025 All rights reserved.</p>
       </div>
       <div class="footer-col">
         <h4>Contact Info</h4>
         <hr class="footer-title-line">
-        <p>Email: estimate@azwestcraft.com</p>
+        <p>Email: Estimate@azwestcraft.com</p>
         <p>Phone: (623) 414-0653</p>
       </div>
       <div class="footer-col">
