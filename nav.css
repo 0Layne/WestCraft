@@ -178,11 +178,12 @@ img {
 
   #nav-social {
     margin-top: 35vh;
+    position: absolute;
+    left: 10%;
   }
 
   .nav-social {
     position: absolute;
-    left: 50px;
   }
 
   .nav__menu {
