@@ -199,6 +199,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+
+  
   // Home-screen animation: Slide logo up from bottom
   window.addEventListener("load", () => {
     document.querySelectorAll(".title-animate").forEach((el) => {
@@ -337,3 +339,66 @@ function scrollToTop() {
 
 
 
+
+
+
+
+
+
+
+
+
+  
+
+//java for the Architectural Legacy
+const regionWrapper = document.querySelector(".region-wrapper");
+const regionSidebar = document.querySelector(".region-sidebar");
+const navItems = document.querySelectorAll(".region-sidebar li");
+const sections = document.querySelectorAll(".region-content-block");
+
+function handleScroll() {
+  const scrollY = window.scrollY;
+  const regionTop = regionWrapper.offsetTop;
+  const regionHeight = regionWrapper.offsetHeight;
+  const regionBottom = regionTop + regionHeight;
+
+  // Show/hide sidebar when inside/outside region
+  if (scrollY + window.innerHeight / 2 >= regionTop && scrollY <= regionBottom - window.innerHeight / 2) {
+    regionSidebar.classList.add("visible");
+  } else {
+    regionSidebar.classList.remove("visible");
+    navItems.forEach(li => li.classList.remove("active")); // clear highlight
+    return;
+  }
+
+  // Highlight the correct nav item
+  let currentId = "";
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const middleY = rect.top + rect.height / 2;
+    if (middleY >= 0 && middleY <= window.innerHeight) {
+      currentId = section.id;
+    }
+  });
+
+  navItems.forEach(li => {
+    li.classList.remove("active");
+    if (li.dataset.target === currentId) {
+      li.classList.add("active");
+    }
+  });
+}
+
+// Smooth scroll on click
+navItems.forEach(li => {
+  li.addEventListener("click", () => {
+    const id = li.dataset.target;
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
+window.addEventListener("scroll", handleScroll);
+window.addEventListener("load", handleScroll);  
