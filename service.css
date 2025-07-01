@@ -52,7 +52,7 @@ img {
   color: white;
   cursor: pointer;
   position: absolute;
-  bottom: 13vh;
+  bottom: 8vh;
   left: 49.5%;
   transform: translateX(-50%);
   width: 45px;
@@ -329,6 +329,7 @@ img {
   .hero-section {
     padding-left: 2rem;
     padding-right: 2rem;
+    padding-top: 5rem;
   }
 
   .cta {
@@ -337,7 +338,8 @@ img {
 
   .image2 {
     max-width: 170px;
-    left: 50px;
+    left: 60px;
+    margin-bottom: 2rem;
   }
 
   .hero-images {
@@ -346,8 +348,8 @@ img {
   }
 
   .image1 {
-    max-width: 90px;
-    top: 15px;
+    width: 120px;
+    top: -15px;
     left: -45px;
   }
 
@@ -518,6 +520,20 @@ img {
 
   .cta-section h2 {
     font-size: 1.8rem;
+  }
+  #background-color-1::after {
+    content: "";
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    background-color: rgba(215, 215, 215, 0.526);
+    /* Desired border color */
+    transform: skewY(-12.5deg);
+    /* Adjust skew angle to visually match section clip */
+    transform-origin: top left;
+    z-index: -1;
   }
 }
 
