@@ -109,59 +109,259 @@ img {
 
 .hero-section {
   display: flex;
-  background-image: url('picture/arizona5.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   justify-content: space-between;
   align-items: center;
-  padding: 16rem 5rem;
+  background: linear-gradient(to right, #111827, #1f2937);
+  padding: 4rem 5rem;
   gap: 2rem;
   flex-wrap: wrap;
+
   position: relative;
-  z-index: 0;
-  /* Ensure the section is behind the content layer */
+  /* important for absolute positioning */
   overflow: hidden;
+  /* prevents glow from bleeding outside */
 }
 
+/* White glow at bottom right */
 .hero-section::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.452);
+  bottom: -200px;
+  right: -110px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.122) 0%, transparent 70%);
   pointer-events: none;
-  z-index: 1;
-  /* This should sit above background but below content */
+  z-index: 0;
 }
+
+
+.hero-images {
+  flex: 1;
+  max-width: 45%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 360px;
+}
+
+.image2 {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.image1 {
+  position: absolute;
+  top: 0px;
+  left: -26px;
+  width: 32%;
+  max-width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.image1:hover,
+.image2:hover {
+  transform: scale(1.03);
+}
+
+/* Gray Box Below Image 1 */
+.box-below {
+  position: absolute;
+  top: calc(65px + 45.6% + 2vh);
+  left: -25px;
+  width: 27.5%;
+  max-width: 250px;
+  height: 202px;
+  background-color: rgba(255, 255, 255, 0.193);
+  /* transparent gray */
+  border-radius: 8px;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.box-below:hover {
+  transform: scale(1.03);
+}
+
+/* Gray Box to the Left of Image 2 */
+.box-left {
+  position: absolute;
+  left: calc(-2vh - 80px);
+  bottom: 0;
+  width: 80px;
+  height: 100px;
+  background-color: rgba(107, 114, 128, 0.2);
+  /* transparent gray */
+  border-radius: 8px;
+  z-index: 0;
+}
+
 .hero-text {
   flex: 1;
-  max-width: 100%;
-  z-index: 9900;
+  max-width: 50%;
 }
 
 .hero-text h2 {
-  font-size: 3rem;
+  font-size: 1.8rem;
   font-weight: 300;
-  text-align: center;
   color: #ffffff;
 }
-.hero-text p{
-  color: white;
-  text-align: center;
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0.5rem 0 1rem;
+  color: #ffffff;
 }
-@media screen and (max-width: 768px) {
-  .hero-section{
-    height: 90vh;
-    padding: 5vh;
+
+.hero-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.features li {
+  margin-bottom: 0.5rem;
+  color: #f87171;
+  font-weight: 600;
+}
+
+.trust-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.trust-info img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+
+.cta {
+  background: #1e293b;
+  color: white;
+  border: 2px solid white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta:hover {
+  background: #2d3a45;
+  box-shadow: 0 10px 25px #1e272e;
+  border: 2px solid rgb(202, 200, 200);
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+    padding-top: 10px;
   }
-  .hero-text h2{
-   font-size: 2rem; 
+
+  .hero-images,
+  .hero-text {
+    max-width: 100%;
+    margin: 0 auto;
   }
-  .hero-text p{
-    font-size: 1rem;
+
+  .hero-images {
+    margin: 0 auto;
+    justify-content: center;
+    min-height: 270px !important;
+  }
+
+  .image2 {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .image1 {
+    top: -10px;
+    left: -10px;
+    max-width: 160px;
+  }
+
+  .box-below,
+  .box-left {
+    display: none;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+    margin: 0 auto;
+  }
+
+  .hero-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .why-choose {
+    margin-top: 15vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .cta {
+    margin-bottom: 15vh;
+  }
+
+  .image2 {
+    max-width: 170px;
+    left: 50px;
+  }
+
+  .hero-images {
+    padding: 0px;
+    margin: 0 auto;
+  }
+
+  .image1 {
+    max-width: 90px;
+    top: 15px;
+    left: -45px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
   }
 }
 
@@ -172,6 +372,7 @@ img {
 
 .services-page{
   background-color: white;
+  width: 100%;
 }
 /* Services Intro */
 .services-intro {
@@ -181,7 +382,27 @@ img {
   max-width: 1000px;
   margin: 0 auto;
 }
-
+#background-color-1{
+  background: linear-gradient(135deg, #e1e1e1 0%, #ffffff 100%);
+  position: relative;
+  clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%);
+  padding-bottom: 5rem;
+  padding-top: 10rem;
+}
+#background-color-1::after {
+  content: "";
+  position: absolute;
+  bottom: -3rem;
+  left: 0;
+  width: 100%;
+  height: 3.5rem;
+  background-color: rgba(215, 215, 215, 0.526);
+  /* Desired border color */
+  transform: skewY(-2.8deg);
+  /* Adjust skew angle to visually match section clip */
+  transform-origin: top left;
+  z-index: -1;
+}
 .services-intro h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -189,7 +410,7 @@ img {
 
 .services-intro p {
   font-size: 1rem;
-  color: #555;
+  color: #000000;
 }
 
 /* Services Layout */
@@ -219,7 +440,7 @@ img {
 }
 
 .service-text p {
-  color: #555;
+  color: #000000;
   line-height: 1.7;
 }
 
@@ -352,7 +573,6 @@ img {
     display: none;
   }
 }
-
 
 
 
