@@ -253,7 +253,7 @@ html {
   .hero-images {
     margin: 0 auto;
     justify-content: center;
-    min-height: 270px !important;
+    min-height: 270px;
   }
 
   .image2 {
@@ -311,17 +311,18 @@ html {
     margin: 1vh;
   }
   .image2 {
-    max-width: 170px;
+    width: 170px;
     left: 50px;
   }
 
   .hero-images{
     padding: 0px;
     margin: 0 auto;
+    min-height: 240px !important;
   }
   .image1 {
-    max-width: 90px;
-    top: 15px;
+    width: 90px;
+    top: 5px;
     left: -45px;
   }
 
@@ -340,8 +341,8 @@ html {
   .hero-number{
     padding-bottom: 1vh;
   }
-}
 
+}
 
 
 
