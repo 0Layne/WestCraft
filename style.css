@@ -308,7 +308,7 @@ html {
   pointer-events: none;
 }
   .cta{
-    margin-bottom: 1rem;
+    margin: 1vh;
   }
   .image2 {
     max-width: 170px;
@@ -338,7 +338,7 @@ html {
     margin-bottom: 5px;
   }
   .hero-number{
-    padding-bottom: 5vh;
+    padding-bottom: 1vh;
   }
 }
 
