@@ -7,35 +7,55 @@ document.addEventListener('DOMContentLoaded', () => {
   let observer;
 
   const maxScroll = 650;
-  const maxPadding = 64;
-  const minPadding = 30;
-  const maxLogo = 90;
-  const minLogo = 40;
+  const maxPadding = 55;
+  const minPadding = 45;
+  const maxLogo = 95;
+  const minLogo = 70;
 
   let isLargeScreen = window.innerWidth > 900;
 
   function applyDesktopHeaderBehavior() {
     window.addEventListener('scroll', onScrollResizeHeader);
-  window.addEventListener('scroll', onScrollHideHeader);
+    window.addEventListener('scroll', onScrollHideHeader);
+    window.addEventListener('scroll', onScrollToggleHeaderBackground);
 
     observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) {
-    header.classList.add('header--fixed');
+        header.classList.add('header--fixed');
       } else {
-    header.classList.remove('header--fixed');
+        header.classList.remove('header--fixed');
       }
-    }, {threshold: 0 });
+    }, { threshold: 0 });
 
-  observer.observe(hero);
+    observer.observe(hero);
+  }
+
+  function applyMobileHeaderBehavior() {
+    header.style.padding = '0.1rem 0.5rem';
+
+    window.addEventListener('scroll', onScrollToggleHeaderBackground);
+
+    observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) {
+        header.classList.add('header--fixed');
+      } else {
+        header.classList.remove('header--fixed');
+      }
+    }, {
+      rootMargin: '0px',
+      threshold: 0
+    });
+
+    observer.observe(hero);
   }
 
   function onScrollResizeHeader() {
     const scrollY = Math.min(window.scrollY, maxScroll);
-  const scrollRatio = scrollY / maxScroll;
-  const currentPadding = maxPadding - (maxPadding - minPadding) * scrollRatio;
-  const currentLogo = maxLogo - (maxLogo - minLogo) * scrollRatio;
+    const scrollRatio = scrollY / maxScroll;
+    const currentPadding = maxPadding - (maxPadding - minPadding) * scrollRatio;
+    const currentLogo = maxLogo - (maxLogo - minLogo) * scrollRatio;
 
-  header.style.padding = `${currentPadding}px 1rem`;
+    header.style.padding = `${currentPadding}px 1rem`;
     logos.forEach(logo => logo.style.height = `${currentLogo}px`);
   }
 
@@ -43,57 +63,63 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentScroll = window.scrollY;
     if (currentScroll > 1100) {
       if (currentScroll > lastScrollY) {
-    header.classList.add('header--hide');
+        header.classList.add('header--hide');
       } else {
-    header.classList.remove('header--hide');
+        header.classList.remove('header--hide');
       }
     } else {
-    header.classList.remove('header--hide');
+      header.classList.remove('header--hide');
     }
-  lastScrollY = currentScroll;
+    lastScrollY = currentScroll;
   }
 
-  function applyMobileHeaderBehavior() {
-    header.style.padding = '1rem 1rem';
-
-    observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) {
-    header.classList.add('header--fixed');
-      } else {
-    header.classList.remove('header--fixed');
-      }
-    }, {
-    rootMargin: '0px',
-  threshold: 0
-    });
-
-  observer.observe(hero);
+  function onScrollToggleHeaderBackground() {
+    if (window.scrollY > 500) {
+      header.classList.add('header--scrolled');
+    } else {
+      header.classList.remove('header--scrolled');
+    }
   }
 
   function cleanup() {
     if (observer) observer.disconnect();
-  window.removeEventListener('scroll', onScrollResizeHeader);
-  window.removeEventListener('scroll', onScrollHideHeader);
-  header.classList.remove('header--fixed', 'header--hide');
-  header.style.padding = '';
+    window.removeEventListener('scroll', onScrollResizeHeader);
+    window.removeEventListener('scroll', onScrollHideHeader);
+    window.removeEventListener('scroll', onScrollToggleHeaderBackground);
+    header.classList.remove('header--fixed', 'header--hide', 'header--scrolled');
+    header.style.padding = '';
     logos.forEach(logo => logo.style.height = '');
   }
 
   function checkWidthAndApplyBehavior() {
     const nowLarge = window.innerWidth > 900;
-  if (nowLarge && !isLargeScreen) {
-    cleanup();
-  isLargeScreen = true;
-  applyDesktopHeaderBehavior();
+    if (nowLarge && !isLargeScreen) {
+      cleanup();
+      isLargeScreen = true;
+      applyDesktopHeaderBehavior();
     } else if (!nowLarge && isLargeScreen) {
-    cleanup();
-  isLargeScreen = false;
-  applyMobileHeaderBehavior();
+      cleanup();
+      isLargeScreen = false;
+      applyMobileHeaderBehavior();
     }
   }
+ 
+  window.addEventListener('load', () => {
+    if (isLargeScreen) {
+      onScrollResizeHeader(); // ensure logo starts at correct enlargement
+    }
+  });
 
   // Initial run
-  isLargeScreen ? applyDesktopHeaderBehavior() : applyMobileHeaderBehavior();
+  if (isLargeScreen) {
+    applyDesktopHeaderBehavior();
+    requestAnimationFrame(() => {
+      onScrollResizeHeader();
+    });
+  } else {
+    applyMobileHeaderBehavior();
+  }
+
 
   window.addEventListener('resize', checkWidthAndApplyBehavior);
 
@@ -112,10 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const navLink = document.querySelectorAll('.nav__link');
   navLink.forEach(n =>
-  n.addEventListener('click', function () {
-    navLink.forEach(n => n.classList.remove('active'));
-  this.classList.add('active');
-  navMenu.classList.remove('show');
+    n.addEventListener('click', function () {
+      navLink.forEach(n => n.classList.remove('active'));
+      this.classList.add('active');
+      navMenu.classList.remove('show');
     })
   );
 
@@ -123,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.scrollToSection = function (sectionClass) {
     const section = document.querySelector(`.${sectionClass}`);
     if (section) {
-      const offset = 130;
+      const offset = 50;
       const sectionPosition = section.offsetTop - offset;
       const currentPosition = window.scrollY;
       const distance = sectionPosition - currentPosition;
@@ -154,7 +180,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  // GSAP Timeline for entrance
+  const tl = gsap.timeline({ defaults: { ease: "power2.out", duration: 1 } });
 
+  // Animate the logo
+  tl.from(".logo", { y: -50, opacity: 0 });
+
+  // Stagger in the nav links
+  tl.from(".nav__link", { y: -30, opacity: 0, stagger: 0.15 }, "-=0.7");
+
+  // Animate the 'Schedule Now' button
+  tl.from(".nav-social", { scale: 0.5, opacity: 0 }, "-=0.5");
+});
+
+
+
+
+
+
+//slow scrolling
+  // Scale factor to reduce scroll speed (increase for slower scroll)
+  const scrollScale = 0.30; // was at 0.10. CHANGE BEFORE FINISH
+
+  window.addEventListener('wheel', (event) => {
+    event.preventDefault(); // Prevent the default scroll behavior
+    const scrollDistance = event.deltaY * scrollScale; // Scale down scroll distance
+    window.scrollBy({
+      top: scrollDistance,
+      left: 0,
+      behavior: 'smooth' // Smooth scroll effect
+    });
+  }, { passive: false }); // Set passive to false to allow preventDefault
 
 
 
@@ -198,6 +255,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+document.addEventListener("scroll", () => {
+  const isMobile = window.innerWidth <= 768;
+
+  document.querySelectorAll(".scroll-animateY").forEach((el) => {
+    const elementPosition = el.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.1;
+
+    if (elementPosition < screenPosition) {
+      el.classList.add("active");
+    } else if (!isMobile) {
+      el.classList.remove("active");
+    }
+  });
+});
+
+
 
 
   
@@ -236,7 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function scrollToSection(sectionClass) {
   const section = document.querySelector(`.${sectionClass}`);
   if (section) {
-    const offset = 130;
+    const offset = 150;
     const sectionPosition = section.offsetTop - offset;
     const currentPosition = window.scrollY;
     const distance = sectionPosition - currentPosition;
