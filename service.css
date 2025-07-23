@@ -423,11 +423,13 @@ img {
 
 .services-intro h2 {
   font-size: 2rem;
+  margin: 2vh;
   margin-bottom: 1rem;
 }
 
 .services-intro p {
   font-size: 1rem;
+  margin: 2vh;
   color: #000000;
 }
 
