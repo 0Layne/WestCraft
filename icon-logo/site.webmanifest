@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "AzWestCraft",
+  "short_name": "WestCraft",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
