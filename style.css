@@ -7,6 +7,7 @@
 body {
   font-family:Arial, Helvetica, sans-serif;
   color: #000000;
+  background-image: url(picture/background-image.jpg);
 }
 html {
   scroll-behavior: smooth;
@@ -27,7 +28,20 @@ html {
   opacity: 1;
   transform: translateX(0);
 }
+.scroll-animateY {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 1.5s ease, opacity 1.5s ease;
+}
 
+.scroll-animateY-right {
+  transform: translateY(100%);
+}
+
+.scroll-animateY.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 
@@ -55,27 +69,27 @@ html {
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(to right, #111827, #1f2937);
-  padding: 4rem 5rem;
+  padding: 6rem 5rem;
   gap: 2rem;
   flex-wrap: wrap;
-
   position: relative;
-  /* important for absolute positioning */
   overflow: hidden;
-  /* prevents glow from bleeding outside */
 }
 
-/* White glow at bottom right */
 .hero-section::after {
   content: '';
   position: absolute;
-  bottom: -200px;
-  right: -110px;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.122) 0%, transparent 70%);
-  pointer-events: none;
+  bottom: -80px;
+  right: -130px;
+  width: 1000px;
+  height: 1000px;
+  background-image: url('picture/westcraft-logo-W.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.07; /* keep it subtle */
   z-index: 0;
+  pointer-events: none;
 }
 
 
@@ -97,6 +111,7 @@ html {
   position: relative;
   z-index: 1;
   margin: 0 auto;
+  transition: all 0.7s ease;
 }
 
 .image1 {
@@ -108,7 +123,7 @@ html {
   border-radius: 12px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
   z-index: 2;
-  transition: transform 0.3s ease;
+  transition: all 0.7s ease;
 }
 
 .image1:hover,
@@ -128,7 +143,7 @@ html {
   /* transparent gray */
   border-radius: 8px;
   z-index: 100;
-  transition: transform 0.3s ease;
+  transition: all 0.7s ease;
 }
 .box-below:hover {
   transform: scale(1.03);
@@ -208,13 +223,18 @@ html {
   text-decoration: none;
   border-radius: 30px;
   font-weight: 500;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .cta:hover {
   background: #2d3a45;
   box-shadow: 0 10px 25px #1e272e;
   border: 2px solid rgb(202, 200, 200);
+}
+.hero-number{
+  font-size: 1rem;
+  margin: 1rem;
+  font-weight: 700;
 }
 @media (max-width: 900px) {
   .hero-section {
@@ -261,16 +281,34 @@ html {
     font-size: 1.3rem;
   }
   .why-choose{
-    margin-top: 15vh;
+    padding-top: 10vh;
   }
+  .why-text ul li:hover .icon {
+    transform: none;
+}
 }
 @media (max-width: 768px) {
   .hero-section{
     padding-left: 2rem;
     padding-right: 2rem;
   }
+  .hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 80px;
+  right: -130px;
+  width: 600px;
+  height: 600px;
+  background-image: url('picture/westcraft-logo-W.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.07; /* keep it subtle */
+  z-index: 0;
+  pointer-events: none;
+}
   .cta{
-    margin-bottom: 15vh;
+    margin-bottom: 1rem;
   }
   .image2 {
     max-width: 170px;
@@ -299,6 +337,9 @@ html {
     font-size: 0.95rem;
     margin-bottom: 5px;
   }
+  .hero-number{
+    padding-bottom: 5vh;
+  }
 }
 
 
@@ -320,23 +361,23 @@ html {
   color: white;
   cursor: pointer;
   position: absolute;
-  bottom: 15vh;
+  bottom: 7vh;
   left: 49.5%;
   transform: translateX(-50%);
   width: 45px;
   height: 45px;
-  background: #2c3e50;
+  background: #8da260;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   animation: bounce 1.5s infinite;
-  z-index: 900;
+  z-index: 90;
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .scroll-arrow:hover {
-  background: #1e272e;
+  background: #1e293b;
   transform: translateX(-50%) scale(1.2);
 }
 
@@ -379,18 +420,13 @@ html {
 
 
 
-
-
-
 /* Why Choose */
 .why-choose {
-  background-color: #ffffff;
-  background-position: right;
-  background-size: 120px auto;
   background-repeat: no-repeat;
-  padding: 10rem 2rem;
+  padding: 9rem 2rem;
   display: flex;
   justify-content: center;
+  background-image: url(picture/background-image.jpg);
 }
 
 .why-choose-content {
@@ -402,44 +438,46 @@ html {
 
 .why-text h3 {
   font-size: 2.8rem;
-  color: #2c3e50;
+  color:#1e293b;
   line-height: 1.3;
   text-align: left;
 }
 
 .why-text h3 span {
   font-weight: 400;
-  color: #6c7a89;
+  color: #2a2a2a;
 }
 
 .why-line {
   width: 80px;
-  height: 4px;
-  background-color: #2c3e50;
+  height: 3px;
+  background-color: #000000;
   border: none;
   border-radius: 10px;
   margin: 2rem 0;
 }
 
 .why-text ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: disc;
+  padding-left: 2rem;
 }
 
 .why-text ul li {
   font-size: 1.1rem;
   padding: 1rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  border-bottom: 1px solid #ddd;
-  color: #2c3e50;
+  border-bottom: 1px solid #000000;
+  color: #000000;
+  transition: transform 0.7s ease;
+}
+
+
+.why-text ul li:hover {
+  transform: scale(1.02);
 }
 
 .why-text ul li .icon {
   font-size: 1.4rem;
-  color: #2c3e50;
+  color: #000000;
 }
 
 .why-image img {
@@ -450,46 +488,8 @@ html {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile responsiveness */
-@media (max-width: 900px) {
-  .why-choose-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .why-text h3 {
-    text-align: center;
-  }
-
-  .why-text ul li {
-    justify-content: center;
-    text-align: left;
-  }
-
-  .why-image {
-    order: -1;
-  }
-}
-@media (max-width: 768px) {
-  .why-choose {
-    background-image: none;
-    padding: 8rem 1.5rem;
-  }
-  .icon{
-    padding: 1.7rem;
-  }
-  .why-text h3 {
-    font-size: 2.2rem;
-  }
-
-  .why-text ul li {
-    font-size: 1rem;
-    padding: 0.9rem 0;
-  }
-
-  .why-line {
-    margin: 1.5rem auto;
-  }
+.why-text ul li:hover .icon {
+  transform: scale(1.5);
 }
 
 
@@ -506,33 +506,50 @@ html {
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
   z-index: 1;
   background-color: #1e293b;
-  /*border-top: 2rem solid rgba(255, 255, 255, 0.103);*/
   padding-top: 15vh;
   padding-bottom: 25vh;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 15vh;
+  overflow: hidden; /* Important to clip the pseudo-element inside the section */
 }
 
 #section4::after {
-  content: "";
+  content: '';
   position: absolute;
-  bottom: -3rem;
-  /* Push it down so it's not affected by the clip-path */
-  left: 0;
-  width: 100%;
-  height: 4rem;
-  background-color: rgba(255, 255, 255, 0.103);
-  /* Desired border color */
-  transform: skewY(-3.5deg);
-  /* Adjust skew angle to visually match section clip */
-  transform-origin: top left;
-  z-index: -1;
-  /* Optional: put it behind if needed */
+  bottom: 150px;
+  left: 50px;
+  width: 500px;
+  height: 500px;
+  background-image: url('picture/westcraft-logo-circle.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.2;
+  z-index: 0; /* behind the text */
+  pointer-events: none;
 }
 
+#mission-section{
+  position: relative;
+  z-index: 1; /* Make sure it sits above the ::after background layer */
+}
+#mission-section::after {
+  content: '';
+  position: absolute;
+  bottom: 150px;
+  left: 50px;
+  width: 500px;
+  height: 500px;
+  background-image: url('picture/westcraft-logo-circle.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.1; /* keep it subtle */
+  z-index: 200;
+  pointer-events: none;
+}
 .section4 h2 {
   font-size: 3rem;
   font-weight: 200;
@@ -541,6 +558,12 @@ html {
   margin-left: 3vh;
   padding-left: 2vh;
 }
+.section4h2,
+.section4-left-div {
+  position: relative;
+  z-index: 400;
+}
+
 .section4 p{
   color: #ffffff;
 }
@@ -649,7 +672,21 @@ html {
     display: none;
     /* Remove the skewed border on mobile for cleaner layout */
   }
-
+  #mission-section::after {
+  content: '';
+  position: absolute;
+  bottom: 320px;
+  left: 20px;
+  width: 350px;
+  height: 350px;
+  background-image: url('picture/westcraft-logo-circle.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.2; /* keep it subtle */
+  z-index: 200;
+  pointer-events: none;
+}
   .section4 h2 {
     text-align: center;
     margin-left: 0;
@@ -704,11 +741,28 @@ html {
 /* process */
 .our-process {
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #e1e1e1 0%, #ffffff 100%);
+  background-color: #1e293b;
   border-radius: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  color: #1e293b;
+  color: #ffffff;
+  position: relative;
+
+}
+#our-process::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  right: 100px;
+  width: 900px;
+  height: 900px;
+  background-image: url('picture/westcraft-logo-W.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.1; /* keep it subtle */
+  z-index: 0;
+  pointer-events: none;
 }
 
 .our-process h3 {
@@ -722,7 +776,7 @@ html {
   content: '';
   width: 80px;
   height: 4px;
-  background-color: #000000;
+  background-color: #ffffff;
   position: absolute;
   bottom: -15px;
   left: 50%;
@@ -738,6 +792,8 @@ html {
   position: relative;
   gap: 2rem;
   padding-bottom: 3rem;
+  z-index: 10;
+  color: #000;
 }
 
 .timeline::before {
@@ -747,7 +803,7 @@ html {
   left: 5%;
   right: 5%;
   height: 4px;
-  background: #1e272edd;
+  background: #8da260;
   border-radius: 2px;
   z-index: 0;
 }
@@ -759,7 +815,7 @@ html {
   flex: 1;
   position: relative;
   box-shadow: 0 8px 20px #1e272e48;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.5s ease;
   cursor: default;
   z-index: 1;
 }
@@ -797,6 +853,7 @@ html {
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: #000;
 }
 
 .timeline-step p {
@@ -900,16 +957,16 @@ html {
 
 /* About Us*/
 .about-metrics-section {
-  background-color: #f9fafb;
+  background-image: url(picture/background-image.jpg);
   padding: 0rem;
   display: flex;
   justify-content: center;
   font-family: 'Segoe UI', sans-serif;
 }
 
+
 .metrics-container {
   width: 100%;
-  background: #ffffff;
   padding: 8rem;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -927,7 +984,7 @@ html {
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1vh;
-  color: #1e272e;
+  color: #1e293b !important;
   margin-bottom: 5rem;
 }
 
@@ -935,7 +992,7 @@ html {
   font-size: 2.25rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #1e272e;
+  color: #1e293b;
 }
 
 .description {
@@ -1171,7 +1228,7 @@ html {
   font-weight: 700;
   padding: 1rem 1rem 1rem 1.5rem;
   margin-bottom: 1.5rem;
-  border-left: 2px solid gray;
+  border-left: 2px solid #1e293b;
   transition: color 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
@@ -1269,6 +1326,7 @@ html {
 
 .wc-feature-content h3 {
   font-size: 3rem;
+  color: #1e293b;
 }
 
 .wc-title-line {
@@ -1403,117 +1461,6 @@ html {
 
 
 
-/* Highlight Services */
-.highlight-services {
-  background-color: #1e293b;
-  padding-bottom: 30vh;
-  padding-top: 10vh;
-  border-top: solid 20px rgba(255, 255, 255, 0.103);
-  border-bottom: solid 20px rgba(255, 255, 255, 0.103);
-}
-
-.highlight-services h3 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 3rem;
-  color: #ffffff;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.service-box {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-  text-align: center;
-}
-
-.service-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px #1e272e;
-}
-
-.service-box h4 {
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  color: #000000;
-}
-
-.service-box p {
-  font-size: 0.95rem;
-  color: #555;
-}
-
-@media (max-width: 900px) {
-  .highlight-services {
-    padding-top: 8vh;
-    padding-bottom: 20vh;
-  }
-
-  .highlight-services h3 {
-    font-size: 2.4rem;
-    margin-bottom: 1.5rem;
-    padding: 0 1rem;
-  }
-  .metric h3::after {
-    margin: 0 auto;
-  }
-  .services-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    padding: 0 2rem;
-  }
-
-  .service-box h4 {
-    font-size: 1.2rem;
-  }
-
-  .service-box p {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .highlight-services {
-    padding-top: 6vh;
-    padding-bottom: 12vh;
-  }
-
-  .highlight-services h3 {
-    font-size: 2rem;
-    padding: 0 1rem;
-  }
-  .metric h3::after {
-    margin: 0 auto;
-  }
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0 1.5rem;
-  }
-
-  .service-box {
-    padding: 1.5rem;
-  }
-
-  .service-box h4 {
-    font-size: 1.15rem;
-  }
-
-  .service-box p {
-    font-size: 0.9rem;
-  }
-}
-
-
 
 
 
@@ -1561,7 +1508,8 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: background 0.3s ease;
+  transition: all 0.5s ease;
+  background-image: url(picture/background-image.jpg);
 }
 
 .testimonial h4 {
@@ -1588,6 +1536,9 @@ html {
 
   .testimonials h3 {
     font-size: 2.25rem;
+  }
+  .testimonials{
+    padding: 3vh;
   }
 }
 
@@ -1620,141 +1571,4 @@ html {
 
 
 
-/* Contact Form Section */
-.contact-form {
-  padding: 20vh 5vh;
-  text-align: center;
-  height: 90vh;
-  margin-bottom: 10vh;
-}
 
-.contact-form h2 {
-  font-size: 3rem;
-  color: #000000d0;
-}
-.contact-line{
-  width: 10%;
-  border-top: solid 2px black;
-  margin: 0 auto;
-}
-
-/* Form Styles */
-.contact-form form {
-  max-width: 80vh;
-  margin: 0 auto;
-  margin-top: 5vh;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-/* Inputs & Textarea */
-.contact-form input,
-.contact-form textarea {
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  width: 100%;
-  transition: border 0.3s, box-shadow 0.3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #000000;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  outline: none;
-}
-
-/* Button */
-.contact-form button {
-  padding: 12px;
-  background-color: #2d3a45;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #1e272e;
-}
-
-
-.popup-message {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-content {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 90%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.popup-content button {
-  margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
-  background: #1e272e;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-@media (max-width: 900px) {
-  .contact-form {
-    padding: 20vh 4vh;
-    height: auto;
-    background-size: 100px auto;
-  }
-
-  .contact-form h2 {
-    font-size: 2.5rem;
-  }
-
-  .contact-form form {
-    max-width: 90%;
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-form {
-    padding: 10vh 3vh;
-    background-size: 80px auto;
-    background-position: bottom center;
-  }
-
-  .contact-form h2 {
-    font-size: 2rem;
-  }
-
-  .contact-form form {
-    margin-top: 4vh;
-    gap: 12px;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 0.95rem;
-    padding: 10px 12px;
-  }
-
-  .contact-form button {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
-}
