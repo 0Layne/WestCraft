@@ -5,8 +5,8 @@
   --header-height: 3rem;
 
   /*===== Colores =====*/
-  --dark-color: #1e272e;
-  --dark-color-alt: #ffffff;
+  --dark-color: #b4b7bf;
+  --dark-color-alt: #000000;
 
   /*===== Fuente y tipografia =====*/
   --body-font: 'Poppins', sans-serif;
@@ -37,7 +37,7 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 a {
@@ -63,26 +63,28 @@ img {
 .header {
   position: relative;
   width: 100%;
-  background-color: #1e293b;
+  background-color: #b4b7bf;
   z-index: 99;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
   /* Enlarged padding on load */
-  transition: padding 0.1s ease, height 0.1s ease, background-color 0.3s ease;
-  transition: transform 0.3s ease;
+  transition: padding 0.1s ease, height 0.1s ease;
+  transition: all 0.7s ease;
   margin: 0 auto;
 }
-
+.header:hover{
+  background-color: #d4d6dc;
+}
 .header--scrolled {
-  padding: 0.5rem 1rem !important;
-  background-color: #1e293b;
+  padding: 2rem 1rem ;
+  background-color: #b4b7bf;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header__logo .logo-mobile {
-  height: 70px;
+  height: 80px;
   /* Enlarged logo size */
   transition: height 0.1s ease;
 }
@@ -91,7 +93,7 @@ img {
   justify-content: flex-start;
   align-items: flex-start;
   margin-left: 1rem;
-  padding: 0;
+  padding: 0px;
   height: auto;
   flex-direction: row;
   color: white;
@@ -139,7 +141,9 @@ img {
     display: flex;
     flex-direction: column;
   }
-
+  .dash-header{
+    display: none;
+  }
   .header {
     position: absolute;
     bottom: 0;
@@ -147,18 +151,44 @@ img {
     right: 0;
     padding: 1rem 1rem;
     height: auto;
+    font-family: 700 !important;
   }
-
+  .footer-divider{
+    display: none;
+  }
   .hero-section {
     padding-bottom: 10vh !important;
   }
-
+  .header-line{
+    margin: 0 auto !important; 
+  }
+  .email,.phone{
+    margin: 3px !important;
+    font-weight: 600;
+  }
   .header--fixed {
     position: fixed !important;
     top: 0;
     bottom: auto;
   }
-
+  #nav-menu::after {
+  content: '';
+  position: absolute;
+  bottom: 70px;
+  right: 0px;
+  width: 600px;
+  height: 600px;
+  background-image: url('picture/westcraft-logo-W.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.2; /* keep it subtle */
+  z-index: 0;
+  pointer-events: none;
+}
+.nav__link {
+  font-weight: 600;
+}
 }
 
 @media screen and (max-width: 768px) {
@@ -196,6 +226,27 @@ img {
     /* or whatever your spacing is */
   }
 }
+  .nav__item{
+    position: relative;
+    font-size: unset;
+  }
+  .nav__item:is(:hover, :focus-visible) {
+    background: none;
+  }
+.nav__item::after {
+  content: url("picture/hover-underline.png");
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.7);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.nav__item:is(:hover, :focus-visible)::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(0.8); /* Shrinks the image slightly */
+}
 
 .nav__content {
   height: 100%;
@@ -214,10 +265,11 @@ img {
   background-color: var(--dark-color-alt);
   border-radius: 50%;
   cursor: pointer;
+  color: white;
 }
 
 .nav-social {
-  color: white;
+  color: rgb(0, 0, 0);
   margin: 0 auto;
   padding: 0px;
 }
@@ -225,7 +277,9 @@ img {
 .nav-social p {
   text-decoration: none;
 }
-
+.dash-header{
+  font-family: 'Courier New', Courier, monospace;
+}
 .phone {
   text-decoration: none;
 }
@@ -250,19 +304,21 @@ a[href^="tel"] {
   text-align: center;
   font-size: 0.8rem;
   text-decoration: none;
+
 }
 
 .header-line {
-  width: 10rem;
-  height: 1px;
+  width: 8rem;
+  height: 0.5px;
   border: none;
   margin: 0 auto;
+  margin: 2px;
   border-radius: 5rem;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .logo {
-  height: 58px;
+  height: 100px;
 }
 
 /* Layout containers */
@@ -277,8 +333,6 @@ a[href^="tel"] {
 }
 
 .nav__img {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -289,7 +343,6 @@ a[href^="tel"] {
   height: auto;
   overflow: hidden;
 }
-
 .head-title {
   color: white;
   font-size: 1.5rem;
@@ -306,22 +359,25 @@ a[href^="tel"] {
 }
 
 .header__toggle {
-  color: #ffffff;
+  color: #000000;
 }
 
 .nav__menu {
   position: absolute;
-  left: 50%;
+  left: 51%;
   top: 35%;
   transform: translateX(-50%);
   display: flex;
   gap: 2rem;
+  
   /* or whatever your spacing is */
 }
 .nav__menu li:hover {
   transform: scale(1.1);
 }
-
+.nav__menu li{
+  transition: all 0.5s ease;
+}
 .nav__item {
   margin: 2.5rem 0;
 }
@@ -560,7 +616,7 @@ a[href^="tel"] {
 .back-to-top {
   width: 45px;
   height: 45px;
-  background: rgba(0, 0, 0, 0.7);
+  background: #8da260;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -575,8 +631,9 @@ a[href^="tel"] {
 }
 
 .back-to-top:hover {
-  background: #2c3e50;
+  background: #b4b7bf;
   transform: scale(1.2);
+  color: #000000;
 }
 
 @keyframes bounce {
@@ -611,11 +668,15 @@ a[href^="tel"] {
 
 /* Footer */
 footer {
-  background: #1e293b;
-  color: white;
-  padding: 100px 20px;
+  background:#b4b7bf;
+  color: rgb(0, 0, 0);
+  padding: 50px 20px;
+  padding-bottom: 2rem;
+  transition: all 0.7s ease;
 }
-
+footer:hover{
+  background-color: #d4d6dc;
+}
 .footer-grid {
   display: flex;
   flex-wrap: wrap;
@@ -625,6 +686,7 @@ footer {
 
 .footer-col {
   flex: 1 1 200px;
+  margin-top: 5rem;
   text-decoration: none;
 }
 
@@ -635,7 +697,7 @@ footer {
 
 
 .footer-col a {
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -653,7 +715,7 @@ footer {
 
 .footer-logo {
   width: 30vh;
-  margin-left: 20vh;
+  margin-left: 10vh;
   margin-right: 20vh;
 }
 .name-footer{
@@ -663,6 +725,12 @@ footer {
   font-size: 0.8rem;
   margin-top: 2vh;
 }
+.license-footer {
+  font-size: 1rem;
+  margin-top: 0.5vh;
+  color: #000000;
+}
+
 .socials {
   display: flex;
   gap: 10px;
@@ -672,12 +740,14 @@ footer {
 }
 
 .socials a {
-  color: #ffffff;
+  color: #000000;
   font-size: 1.8rem;
   text-decoration: none;
+  transition: all 0.5s ease;
 }
 .socials a:hover{
   transform: scale(1.1);
+  color: #8da260;
 }
 .footer-title-line{
   width: 3rem;
@@ -685,11 +755,41 @@ footer {
   margin-bottom: 0.5vh;
   border: none;
   border-radius: 5rem;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .footer-dash{
   font-size: 1.5rem;
   font-weight: 100;
+}
+.footer-legal-container {
+  width: 100%;
+  margin-top: 1rem;
+  padding-right: 30px;
+  text-align: right;
+  cursor: pointer;
+}
+
+
+
+.footer-legal-links {
+  display: inline-flex;
+  gap: 20px;
+  font-size: 1rem;
+  color: #000000;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  border-top: 1px solid black;
+  padding-top: 1rem;
+}
+
+.footer-legal-links a {
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #8da260;
 }
 /* ========= MEDIA QUERY: max-width 900px ========= */
 @media (max-width: 900px) {
@@ -777,5 +877,10 @@ footer {
   }
   .footer-dash {
     display: none;
+  }
+  .footer-legal-container {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0px !important;
   }
 }
