@@ -199,21 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-//slow scrolling
-  // Scale factor to reduce scroll speed (increase for slower scroll)
-  const scrollScale = 0.30; // was at 0.10. CHANGE BEFORE FINISH
-
-  window.addEventListener('wheel', (event) => {
-    event.preventDefault(); // Prevent the default scroll behavior
-    const scrollDistance = event.deltaY * scrollScale; // Scale down scroll distance
-    window.scrollBy({
-      top: scrollDistance,
-      left: 0,
-      behavior: 'smooth' // Smooth scroll effect
-    });
-  }, { passive: false }); // Set passive to false to allow preventDefault
-
-
 
 
 
