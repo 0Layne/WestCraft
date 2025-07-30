@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastScrollY = window.scrollY;
   let observer;
 
-  const maxScroll = 650;
-  const maxPadding = 55;
-  const minPadding = 45;
+  const maxScroll = 750;
+  const maxPadding = 53;
+  const minPadding = 40;
   const maxLogo = 95;
   const minLogo = 70;
 
@@ -30,24 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(hero);
   }
 
-  function applyMobileHeaderBehavior() {
-    header.style.padding = '0.1rem 0.5rem';
+function applyMobileHeaderBehavior() {
+  header.style.padding = '0.1rem 0.5rem';
 
-    window.addEventListener('scroll', onScrollToggleHeaderBackground);
+  window.addEventListener('scroll', onScrollToggleHeaderBackground);
+  window.addEventListener('scroll', onScrollHideHeader); // ✅ Add this line
 
-    observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) {
-        header.classList.add('header--fixed');
-      } else {
-        header.classList.remove('header--fixed');
-      }
-    }, {
-      rootMargin: '0px',
-      threshold: 0
-    });
+  observer = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) {
+      header.classList.add('header--fixed');
+    } else {
+      header.classList.remove('header--fixed');
+    }
+  }, {
+    rootMargin: '0px',
+    threshold: 0
+  });
 
-    observer.observe(hero);
-  }
+  observer.observe(hero);
+}
+
 
   function onScrollResizeHeader() {
     const scrollY = Math.min(window.scrollY, maxScroll);
@@ -61,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function onScrollHideHeader() {
     const currentScroll = window.scrollY;
-    if (currentScroll > 1100) {
+    if (currentScroll > 500) {
       if (currentScroll > lastScrollY) {
         header.classList.add('header--hide');
       } else {
@@ -178,40 +180,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
+// --- GSAP ANIMATIONS ---
 document.addEventListener('DOMContentLoaded', () => {
-  // GSAP Timeline for entrance
   const tl = gsap.timeline({ defaults: { ease: "power2.out", duration: 1 } });
-
-  // Animate the logo
   tl.from(".logo", { y: -50, opacity: 0 });
-
-  // Stagger in the nav links
   tl.from(".nav__link", { y: -30, opacity: 0, stagger: 0.15 }, "-=0.7");
-
-  // Animate the 'Schedule Now' button
-  tl.from(".nav-social", { scale: 0.5, opacity: 0 }, "-=0.5");
+  tl.from(".trust-info", { scale: 0.5, opacity: 0 }, "-=0.5");
 });
-
-
-
-
-
-//slow scrolling
-  // Scale factor to reduce scroll speed (increase for slower scroll)
-  const scrollScale = 0.50; // was at 0.10. CHANGE BEFORE FINISH
-
-  window.addEventListener('wheel', (event) => {
-    event.preventDefault(); // Prevent the default scroll behavior
-    const scrollDistance = event.deltaY * scrollScale; // Scale down scroll distance
-    window.scrollBy({
-      top: scrollDistance,
-      left: 0,
-      behavior: 'smooth' // Smooth scroll effect
-    });
-  }, { passive: false }); // Set passive to false to allow preventDefault
-
 
 
 
@@ -421,23 +396,23 @@ function scrollToTop() {
 
   
 
-//java for the Architectural Legacy
-const regionWrapper = document.querySelector(".region-wrapper");
-const regionSidebar = document.querySelector(".region-sidebar");
-const navItems = document.querySelectorAll(".region-sidebar li");
-const sections = document.querySelectorAll(".region-content-block");
+// JavaScript for the Process Section
+const processWrapper = document.querySelector(".process-wrapper");
+const processSidebar = document.querySelector(".process-sidebar");
+const navItems = document.querySelectorAll(".process-sidebar li");
+const sections = document.querySelectorAll(".process-content-block");
 
 function handleScroll() {
   const scrollY = window.scrollY;
-  const regionTop = regionWrapper.offsetTop;
-  const regionHeight = regionWrapper.offsetHeight;
-  const regionBottom = regionTop + regionHeight;
+  const processTop = processWrapper.offsetTop;
+  const processHeight = processWrapper.offsetHeight;
+  const processBottom = processTop + processHeight;
 
-  // Show/hide sidebar when inside/outside region
-  if (scrollY + window.innerHeight / 2 >= regionTop && scrollY <= regionBottom - window.innerHeight / 2) {
-    regionSidebar.classList.add("visible");
+  // Show/hide sidebar when inside/outside process
+  if (scrollY + window.innerHeight / 2 >= processTop && scrollY <= processBottom - window.innerHeight / 2) {
+    processSidebar.classList.add("visible");
   } else {
-    regionSidebar.classList.remove("visible");
+    processSidebar.classList.remove("visible");
     navItems.forEach(li => li.classList.remove("active")); // clear highlight
     return;
   }
@@ -459,6 +434,9 @@ function handleScroll() {
     }
   });
 }
+
+window.addEventListener("scroll", handleScroll);
+
 
 // Smooth scroll on click
 navItems.forEach(li => {
