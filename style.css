@@ -1102,7 +1102,7 @@ html {
 
 @media (max-width: 768px) {
   .region-content::before {
-    background-size: 90%;
+    background-size: 100%;
   }
   .lagacy-heading {
     font-size: 2rem;
