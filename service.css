@@ -414,6 +414,12 @@ img {
 .gallery-h1 {
   font-size: 4rem;
 }
+.gallery-line{
+  width: 20vh;
+  height: 2px;
+  border: none;
+  background-color: rgb(0, 0, 0);
+}
 
 .gallery-title {
   font-size: 1.5rem;
