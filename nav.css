@@ -136,11 +136,15 @@ img {
   display: block;
   align-items: center;
   gap: 0.5rem;
+  padding: 0px;
+  margin: 0px;
   font-size: 0.9rem;
   color: #9ca3af;
 }
 
 .cta {
+    display: block;
+  align-items: center;
   background: #1e293b; 
   color: white;
   border: 2px solid white;
@@ -191,23 +195,11 @@ img {
     /* or whatever your spacing is */
   }
 
-    #nav-social {
-    position: static;
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem; /* space below nav links */
+  .cta{
+    display: block !important;
   }
-
-  .trust-info {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .cta {
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 10rem;
+  #nav-social{
+    display: none;
   }
   .dash-header{
     display: none;
@@ -246,23 +238,11 @@ img {
     /* or whatever your spacing is */
   }
 
-    #nav-social {
-    position: static;
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem; /* space below nav links */
+  .cta{
+    display: block !important;
   }
-
-  .trust-info {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .cta {
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 10rem;
+  #nav-social{
+    display: none;
   }
   .dash-header{
     display: none;
@@ -298,23 +278,11 @@ img {
   .logo-mobile{
     height: 100px !important;
   }
-    #nav-social {
-    position: static;
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem; /* space below nav links */
+  .cta{
+    display: block !important;
   }
-
-  .trust-info {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .cta {
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 10rem;
+  #nav-social{
+    display: none;
   }
 }
 
@@ -580,6 +548,7 @@ img {
     color: var(--white-color);
   }
 }
+
 
 
 
@@ -869,3 +838,4 @@ footer:hover{
     padding: 0px !important;
   }
 }
+
