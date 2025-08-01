@@ -185,8 +185,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const tl = gsap.timeline({ defaults: { ease: "power2.out", duration: 1 } });
   tl.from(".logo", { y: -50, opacity: 0 });
   tl.from(".nav__link", { y: -30, opacity: 0, stagger: 0.15 }, "-=0.7");
-  tl.from(".trust-info", { scale: 0.5, opacity: 0 }, "-=0.5");
+  tl.from("#nav-social", { scale: 0.5, opacity: 0 }, "-=0.5");
 });
+
 
 
 
@@ -451,3 +452,4 @@ navItems.forEach(li => {
 
 window.addEventListener("scroll", handleScroll);
 window.addEventListener("load", handleScroll);  
+
