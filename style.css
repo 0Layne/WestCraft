@@ -480,7 +480,12 @@ html {
 .why-text ul li:hover .icon {
   transform: scale(1.5);
 }
-
+@media (max-width: 1200px) {
+  .why-choose {
+  max-width: 80%;
+  margin: 0 auto;
+}
+}
 
 
 
@@ -1513,6 +1518,7 @@ html {
     font-size: 0.9rem;
   }
 }
+
 
 
 
