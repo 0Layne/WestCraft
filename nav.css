@@ -745,6 +745,15 @@ footer:hover{
   border-bottom: solid 2px #8da260;
 }
 /* ========= MEDIA QUERY: max-width 900px ========= */
+@media (max-width: 1200px) {
+  .footer-logo {
+    width: 25vh;
+    margin: 0 auto;
+    margin-right: 15vh;
+  }
+}
+
+
 @media (max-width: 900px) {
   .footer-grid {
     gap: 1rem;
@@ -837,3 +846,4 @@ footer:hover{
     padding: 0px !important;
   }
 }
+
