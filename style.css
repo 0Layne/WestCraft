@@ -80,15 +80,15 @@ html {
 .hero-section::after {
   content: '';
   position: absolute;
-  bottom: -80px;
+  bottom: -60px;
   right: -130px;
   width: 1000px;
   height: 1000px;
-  background-image: url('picture/westcraft-logo-W.svg');
+  background-image: url('picture/Westcraft-logo-w.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom right;
-  opacity: 0.07; /* keep it subtle */
+  opacity: 0.03; /* keep it subtle */
   z-index: 0;
   pointer-events: none;
 }
@@ -360,7 +360,7 @@ html {
   transform: translateX(-50%);
   width: 45px;
   height: 45px;
-  background: #8da260;
+  background: #1e293b;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -371,7 +371,7 @@ html {
 }
 
 .scroll-arrow:hover {
-  background: #1e293b;
+  background: #000000;
   transform: translateX(-50%) scale(1.2);
 }
 
@@ -495,6 +495,9 @@ html {
 
 
 
+
+
+
 #section4 {
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
@@ -512,15 +515,15 @@ html {
 #section4::after {
   content: '';
   position: absolute;
-  bottom: 40px;
-  left: 50px;
-  width: 600px;
-  height: 600px;
-  background-image: url('picture/westcraft-logo-notxt.svg');
+  bottom: 100px;
+  left: 250px;
+  width: 500px;
+  height: 500px;
+  background-image: url('picture/westcraft-logo-w-square.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom right;
-  opacity: 0.2;
+  opacity: 0.02;
   z-index: 0; /* behind the text */
   pointer-events: none;
 }
@@ -647,11 +650,11 @@ html {
 #section4::after {
   content: '';
   position: absolute;
-  left: -10px;
+  left: 5px;
   bottom: 50px;
-  width: 420px;
-  height: 420px;
-  background-image: url('picture/westcraft-logo-notxt.svg');
+  width: 380px;
+  height: 380px;
+  background-image: url('picture/westcraft-logo-w-square.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -897,12 +900,12 @@ html {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('picture/westcraft-logo-notxt.svg');
+  background-image: url('picture/westcraft-logo-w-square-black.png');
   background-size: 45%;
   background-repeat: no-repeat;
   background-position: right;
   background-attachment: fixed;
-  opacity: 0.2;
+  opacity: 0.05;
   z-index: 0;
 }
 
@@ -1518,7 +1521,6 @@ html {
     font-size: 0.9rem;
   }
 }
-
 
 
 
