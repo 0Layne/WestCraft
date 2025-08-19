@@ -63,7 +63,7 @@ img {
   transform: translateX(-50%);
   width: 45px;
   height: 45px;
-  background: #8da260;
+  background: #1e293b;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -74,7 +74,7 @@ img {
 }
 
 .scroll-arrow:hover {
-  background: #1e293b;
+  background: #000000;
   transform: translateX(-50%) scale(1.2);
 }
 
@@ -124,15 +124,15 @@ img {
 .hero-section::after {
   content: '';
   position: absolute;
-  bottom: -80px;
+  bottom: -60px;
   right: -130px;
   width: 1000px;
   height: 1000px;
-  background-image: url('picture/westcraft-logo-W.svg');
+  background-image: url('picture/Westcraft-logo-w.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom right;
-  opacity: 0.07; /* keep it subtle */
+  opacity: 0.03; /* keep it subtle */
   z-index: 0;
   pointer-events: none;
 }
@@ -413,6 +413,7 @@ img {
 
 .gallery-h1 {
   font-size: 4rem;
+  color: #000000;
 }
 .gallery-line{
   width: 20vh;
@@ -692,13 +693,13 @@ img {
 
 .contact-form h2 {
   font-size: 3rem;
-  color: #000000d0;
+  color: #ffffffd0;
 }
 .contact-line{
   width: 10%;
   border:none;
   height: 2px;
-  background-color: #000000;
+  background-color: #ffffff;
   margin: 0 auto;
 }
 
@@ -730,21 +731,63 @@ img {
   outline: none;
 }
 
-/* Button */
-.contact-form button {
-  padding: 12px;
-  background-color: #2d3a45;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.contact-button {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  /* changed from inline-flex */
+  align-items: center;
+  justify-content: center;
+  /* horizontally center text */
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 5px;
+  width: 100%;
+  padding: 1rem;
+  color: rgb(0, 0, 0) !important;
+  border: solid 0.5px rgb(0, 0, 0);
+  overflow: hidden;
+  transition: transform 0.7s ease;
+
 }
 
-.contact-form button:hover {
-  background-color: #1e272e;
+
+/* Underline effect */
+.contact-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 70%;
+  height: 2px;
+  background: linear-gradient(135deg, #8c8c8c 0%, #000000 100%);
+  transition: width 0.7s ease-in-out, border 0.7s, background-color 0.7s ease;
 }
+
+.contact-button:hover {
+  transform: scale(1.02);
+  background-color: aliceblue !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
+
+.contact-button:hover::after {
+  width: 100%;
+}
+
+/* Reverse effect when un-hovering */
+.contact-button::after {
+  transition: width 0.5s ease-in-out;
+}
+
+.contact-button:not(:hover)::after {
+  width: 0;
+  transition: width 0.5s ease-in-out 0.2s;
+}
+
 
 .popup-message {
   display: none;
