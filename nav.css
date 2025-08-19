@@ -5,7 +5,7 @@
   --header-height: 3rem;
 
   /*===== Colores =====*/
-  --dark-color: #b4b7bf;
+  --dark-color: #1e293b;
   --dark-color-alt: #000000;
 
   /*===== Fuente y tipografia =====*/
@@ -37,7 +37,7 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 a {
@@ -63,7 +63,7 @@ img {
 .header {
   position: fixed;
   width: 100%;
-  background-color: #b4b7bf;
+  background-color: #1e293b;
   z-index: 99;
   display: flex;
   justify-content: space-between;
@@ -75,7 +75,7 @@ img {
   margin: 0 auto;
 }
 .header:hover{
-  background-color: #d4d6dc;
+  background-color: #27354d;
 }
 .header--fixed {
   position: fixed;
@@ -100,7 +100,7 @@ img {
 }
 
 .header__logo .logo-mobile {
-  height: 90px;
+  height: 70px;
   /* Enlarged logo size */
   transition: height 0.1s ease;
 }
@@ -145,9 +145,9 @@ img {
 .cta {
     display: block;
   align-items: center;
-  background: #1e293b; 
-  color: white;
-  border: 2px solid white;
+  background: transparent; 
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
   padding: 1rem 2rem;
   text-decoration: none;
   border-radius: 30px;
@@ -157,8 +157,9 @@ img {
 }
 
 .cta:hover {
-  background: #2d3a45;
+  background: #ffffff;
   box-shadow: 0 10px 25px #1e272e;
+  color: #000;
   border: 2px solid rgb(202, 200, 200);
 }
 /*===== NAV =====*/
@@ -268,10 +269,11 @@ img {
   .nav__menu {
     position: absolute;
     left: 50%;
-    top: 100%;
+    top: 30% !important;
     transform: translateX(-50%);
     display: flex;
     gap: 2rem;
+    font-size: 1.2rem ;
     /* or whatever your spacing is */
   }
 
@@ -280,6 +282,7 @@ img {
   }
   .cta{
     display: block !important;
+    font-size: 1rem !important;
   }
   #nav-social{
     display: none;
@@ -295,7 +298,7 @@ img {
     background: none;
   }
 .nav__link::after {
-  content: url("picture/hover-underline\ \(1\).png");
+  content: url("picture/hover-underline.png");
   position: absolute;
   bottom: -5px;
   left: 50%;
@@ -306,7 +309,7 @@ img {
 
 .nav__link:is(:hover, :focus-visible)::after {
   opacity: 1;
-  transform: translateX(-50%) scale(0.2); /* Shrinks the image slightly */
+  transform: translateX(-50%) scale(0.15); /* Shrinks the image slightly */
 }
 
 .nav__content {
@@ -320,13 +323,15 @@ img {
 
 .nav__close {
   position: absolute;
-  right: 2rem;
-  font-size: 1.3rem;
+  right: 1vh;
+  top: 3vh;
+  font-size: 2rem;
   padding: .25rem;
   background-color: var(--dark-color-alt);
   border-radius: 50%;
   cursor: pointer;
-  color: white;
+  color: rgb(0, 0, 0);
+  background-color: white;
 }
 
 .nav-social {
@@ -347,14 +352,13 @@ img {
 .logo {
   height: 90px;
 }
-.logo-1 {
-  height: 60px;
-  margin: 1vh;
-}
+
 /* Layout containers */
 .header-left {
   display: flex;
-  align-items: center;
+  margin-right: 0px !important;
+  padding-right: 0px !important;
+  width: 90% !important;
 }
 
 /* Flex ratios */
@@ -389,7 +393,7 @@ img {
 }
 
 .header__toggle {
-  color: #000000;
+  color: #ffffff;
   font-size: 2rem;
   transition:  all 0.7s ;
 }
@@ -568,7 +572,7 @@ img {
 .back-to-top {
   width: 45px;
   height: 45px;
-  background: #8da260;
+  background: #1e293b;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -583,7 +587,7 @@ img {
 }
 
 .back-to-top:hover {
-  background: #1e293b;
+  background: #000000;
   transform: scale(1.2);
 }
 
@@ -619,14 +623,14 @@ img {
 
 /* Footer */
 footer {
-  background:#b4b7bf;
-  color: rgb(0, 0, 0);
+  background:#1e293b;
+  color: rgb(255, 255, 255);
   padding: 0px 20px;
   padding-bottom: 2rem;
   transition: all 0.7s ease;
 }
 footer:hover{
-  background-color: #d4d6dc;
+  background-color: #27354d;
 }
 .footer-grid {
   display: flex;
@@ -645,10 +649,12 @@ footer:hover{
   list-style: none;
   padding: 0;
 }
-
+.footer-col h4, h2, p{
+  color: white;
+}
 
 .footer-col a {
-  color: #000000;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -669,6 +675,9 @@ footer:hover{
   margin: 0 auto;
   margin-right: 15vh;
 }
+.footer-logo-mobile{
+  display: none;
+}
 .name-footer{
   font-size: 2.3rem;
 }
@@ -679,7 +688,7 @@ footer:hover{
 .license-footer {
   font-size: 1rem;
   margin-top: 1vh;
-  color: #000000;
+  color: #ffffff;
 }
 
 .socials {
@@ -691,15 +700,15 @@ footer:hover{
 }
 
 .socials a {
-  color: #000000;
+  color: #ffffff;
   font-size: 1.8rem;
   text-decoration: none;
   transition: all 0.5s ease;
 }
 .socials a:hover{
   transform: scale(1.1);
-  color: #1e293b;
-  border-bottom: solid 2px #8da260;
+  color: #d1d1d1;
+  border-bottom: solid 2px #ffffff;
 }
 .footer-title-line{
   width: 3rem;
@@ -707,7 +716,7 @@ footer:hover{
   margin-bottom: 0.5vh;
   border: none;
   border-radius: 5rem;
-  background-color: #000000;
+  background-color: #ffffff;
 }
 .footer-dash{
   font-size: 1.5rem;
@@ -727,22 +736,23 @@ footer:hover{
   display: inline-flex;
   gap: 20px;
   font-size: 1rem;
-  color: #000000;
+  color: #ffffff;
   flex-wrap: wrap;
-  margin-top: 1rem;
-  border-top: 1px solid black;
-  padding-top: 1rem;
+  margin-top: 1vh;
+  border-top: 1px solid rgb(255, 255, 255);
+  padding-top: 1vh;
+  padding-bottom: 1rem;
 }
 
 .footer-legal-links a {
-  color: #000000;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-legal-links a:hover {
-  color: #1e293b;
-  border-bottom: solid 2px #8da260;
+  color: #d1d1d1;
+  border-bottom: solid 2px #ffffff;
 }
 /* ========= MEDIA QUERY: max-width 900px ========= */
 @media (max-width: 1200px) {
@@ -797,10 +807,13 @@ footer:hover{
   }
 
   .footer-logo {
-    width: 22vh;
+    display: none;
+  }
+  .footer-logo-mobile{
+    display: block;
+    width: 15vh;
     margin: 0 auto;
   }
-
   .name-footer {
     font-size: 1.9rem;
     margin-top: 1rem;
@@ -808,7 +821,6 @@ footer:hover{
 
   .copyright-footer {
     font-size: 0.7rem;
-    margin-top: 0.5vh;
   }
 
   .footer-col h4 {
@@ -836,6 +848,7 @@ footer:hover{
     margin: 0;
     padding: 0;
     flex: 1rem;
+    margin: 1rem;
   }
   .footer-dash {
     display: none;
@@ -846,4 +859,3 @@ footer:hover{
     padding: 0px !important;
   }
 }
-
