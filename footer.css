@@ -16,15 +16,7 @@ html {
   scroll-behavior: smooth;
   color: #000000;
 }
-.header{
-  position: fixed !important;
-}
-.logo{
-  width: 90px !important;
-}
-.show {
-  display: block !important;
-}
+
 
 .legal-section {
   padding: 60px 20px;
@@ -34,16 +26,16 @@ html {
   margin-bottom: 15vh;
 }
 .legal-section::after{
-    background-image: url(picture/westcraft-logo-W.svg);
+    background-image: url(picture/westcraft-logo-w-square-black.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom right;
   content: '';
   position: fixed;
-  opacity: 0.3;
-  bottom: -80px;
-  right: -130px;
-  width: 1000px;
+  opacity: 0.1;
+  bottom: 50px;
+  right: 130px;
+  width: 700px;
   height: 1000px;
   z-index: -1;
 }
@@ -51,28 +43,29 @@ html {
 .container h1 {
   font-size: 3rem;
   margin-bottom: 10px;
-  color: #2c3e50;
+  color: #111;
 }
 
 .container h2 {
   margin-top: 3rem;
-  color: #34495e;
+  color: #111;
 }
 
 .container p,
 .container ul {
   margin-bottom: 20px;
+  color: #000000;
 }
 
 .container a {
-  color: #0066cc;
+  color: #111;
   text-decoration: underline;
 }
 
 
 @media (max-width: 768px) {
   .legal-section {
-    padding: 40px 15px;
+    padding: 20vh 15px;
   }
 
   .container h1 {
@@ -82,5 +75,19 @@ html {
   .container h2 {
     font-size: 1.4rem;
   }
+  .legal-section::after{
+    background-image: url(picture/westcraft-logo-w-square-black.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  content: '';
+  position: fixed;
+  opacity: 0.1;
+  bottom: 50px;
+  right: 10px;
+  width: 500px;
+  height: 500px;
+  z-index: -1;
+}
 
 }
