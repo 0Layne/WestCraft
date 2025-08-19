@@ -180,12 +180,40 @@ function applyMobileHeaderBehavior() {
 
 
 
-// --- GSAP ANIMATIONS ---
 document.addEventListener('DOMContentLoaded', () => {
+  
+  // Wait for 3 seconds before starting animations
+  setTimeout(() => {
+  // GSAP Timeline for entrance
   const tl = gsap.timeline({ defaults: { ease: "power2.out", duration: 1 } });
-  tl.from(".logo", { y: -50, opacity: 0 });
+
+
+  // Animate the logo
+  tl.from(".header-left", { scale: 0.5, opacity: 0 });
+
+
+  // Stagger in the nav links
   tl.from(".nav__link", { y: -30, opacity: 0, stagger: 0.15 }, "-=0.7");
-  tl.from("#nav-social", { scale: 0.5, opacity: 0 }, "-=0.5");
+
+
+ //social phone
+  tl.from(".nav-social", { scale: 0.5, opacity: 0 }, "-=0.7");
+  //social email
+  tl.from(".hero-images", { scale: 0.5, opacity: 0 }, "-=0.7");
+  //social instagram
+
+  //social facebook
+  tl.from("#hero-texth2", { scale: 0.5, opacity: 0 }, "-=0.7");
+
+
+  // Animate the 'Schedule Now' button
+  tl.from("#hero-texth1", { scale: 0.5, opacity: 0 }, "-=0.7");
+
+
+  //scroll arrow
+  tl.from("#hero-textp", { scale: 0.5, opacity: 0 }, "-=0.9");
+
+  }, 300); // 3000ms = 3 seconds
 });
 
 
@@ -452,4 +480,3 @@ navItems.forEach(li => {
 
 window.addEventListener("scroll", handleScroll);
 window.addEventListener("load", handleScroll);  
-
