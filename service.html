@@ -199,36 +199,47 @@
 
 
 
-  <footer>
-   <section class="contact-form" id="contact">
-    <h2 class="title-animate">Contact Us Today!</h2>
-    <hr class="contact-line">
-  
-    <form id="contactForm" action="https://formspree.io/f/mpwrjngo" method="post">
-      <label>
+<footer>
+<section class="contact-section scrolltome" id="contact">
+  <div class="contact-container">
+    
+    <!-- Left side: Title -->
+    <div class="contact-left">
+      <h4 class="scroll-animate">
+        Your Dream Home Starts Here — Reach Out Today to Begin the Journey Together with WestCraft.
+      </h4>
+    </div>
+
+    <!-- Right side: Form -->
+    <div class="contact-right">
+    <form class="contact-form scroll-animateY" id="contactForm" action="https://formspree.io/f/mpwrjngo" method="post">
+      <label class="scroll-animate">
         <input type="text" name="name" required placeholder="First and Last name">
       </label>
   
-      <label>
+      <label class="scroll-animate">
         <input type="tel" name="phone" required placeholder="Phone">
       </label>
   
-      <label>
+      <label class="scroll-animate">
         <input type="email" name="email" required placeholder="Email">
       </label>
   
-      <label>
+      <label class="scroll-animate">
         <input type="text" name="location" required placeholder="Location">
       </label>
   
-      <label>
+      <label class="scroll-animate">
         <textarea name="project" rows="4" placeholder="Project Overview (Optional)"></textarea>
       </label>
   
-        <button class="contact-button" type="submit">Send</button>
+      <button class="scroll-animate contact-button" type="submit">Send</button>
     </form>
+    </div>
+  </div>
   
-    </section>
+   
+
     <!-- Popup message -->
     <div id="popupMessage" class="popup-message">
       <div class="popup-content">
@@ -236,7 +247,9 @@
         <p>Your message has been sent. We’ll be in touch soon.</p>
         <button onclick="closePopup()">Close</button>
       </div>
-    </div>
+    </div>  
+</section>
+
 
 
 
@@ -526,5 +539,6 @@ document.querySelectorAll('.gallery-row').forEach(row => {
 </body>
 
 </html>
+
 
 
