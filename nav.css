@@ -729,7 +729,9 @@ footer:hover{
   text-align: right;
   cursor: pointer;
 }
-
+.footer-icon-image{
+  width: 15%;
+}
 
 
 .footer-legal-links {
@@ -761,6 +763,9 @@ footer:hover{
     margin: 0 auto;
     margin-right: 15vh;
   }
+    .footer-icon-image{
+    width: 20%;
+  }
 }
 
 
@@ -768,11 +773,15 @@ footer:hover{
   .footer-grid {
     gap: 1rem;
   }
-
-  .footer-logo {
-    width: 24vh;
+  .footer-icon-image{
+    width: 20%;
   }
-
+  .footer-logo {
+    width: 34vh;
+  }
+  .footer-col-logo{
+    padding: 0px;
+  }
   .name-footer {
     font-size: 2.1rem;
     margin-top: 1rem;
@@ -784,7 +793,7 @@ footer:hover{
   }
 
   .socials {
-    justify-content: center;
+    justify-content: left;
     font-size: 1.1rem;
   }
 }
@@ -794,7 +803,9 @@ footer:hover{
   footer {
     padding: 30px 15px;
   }
-
+  .footer-icon-image{
+    width: 10%;
+  }
   .footer-grid {
     flex-direction: column;
     align-items: center;
@@ -859,3 +870,10 @@ footer:hover{
     padding: 0px !important;
   }
 }
+
+@media (max-width: 450px) {
+  .footer-icon-image{
+    width: 15%;
+  }
+}
+
