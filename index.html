@@ -58,64 +58,85 @@
 
         <!-- Header -->
     <header class="header" id="main-header">
-      <a href="#" class="header__logo"><img src="picture/westcraft-logo.png" alt="WestCraft Logo"
-          class="logo-mobile"></a>
-          
-  
-      <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
-  
-      <nav class="nav" id="nav-menu">
-        <div class="nav__content bd-grid">
-  
-          <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
-  
-          <div class="header-left">
-            <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo" />
-            <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo logo-menu" />
-          </div>
-  
-          <div class="nav__menu">
-            <ul class="nav__list">
-              <li class="nav__item"><a href="index.html" class="nav__link active">Home</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#locations-section" class="nav__link">Process</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="service.html#showcase" target="_blank" class="nav__link">Showcase</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#Legacy" class="nav__link">Legacy</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#aboutussection" class="nav__link">About</a></li>
-              <a href="service.html#contact" target="_blank" class="cta" style="display: none;">Schedule a Consultation</a>
+  <a href="#" class="header__logo">
+    <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo-mobile">
+  </a>
+
+  <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+
+  <nav class="nav" id="nav-menu">
+    <div class="nav__content bd-grid">
+      <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+
+      <div class="header-left">
+        <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo" />
+        <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo logo-menu" />
+      </div>
+
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html" class="nav__link nav__link-1 active">Home</a></li>
+          <span class="dash-header">|</span>
+          <li class="nav__item"><a href="index.html#locations-section" class="nav__link nav__link-1">Process</a></li>
+          <span class="dash-header">|</span>
+          <li class="nav__item"><a href="service.html#showcase" target="_blank" class="nav__link nav__link-1">Showcase</a></li>
+          <span class="dash-header">|</span>
+
+          <!-- 🔹 TILE DROPDOWN -->
+          <li class="nav__item dropdown">
+            <a href="divsion.html" class="nav__link dropdown-toggle">Divisions</a>
+            <ul class="dropdown-menu">
+              <li><a href="divsion.html#tile-section">Tile</a></li>
+              <li><a href="divsion.html#stone-section">Stone</a></li>
+              <li><a href="build.html#remodel-section">Remodel</a></li>
+              <li><a href="build.html#home-section">Home</a></li>
             </ul>
-          </div>
-  
-        <div class="nav-social" id="nav-social">
-          <a href="service.html#contact" target="_blank" class="cta">Schedule a Consultation</a>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <section class="hero-section">
-      <div class="hero-images">
-        <img src="picture/Vision to Architectural-image 2.jpg" alt="Home Exterior 2" class="image2">
-        <img src="picture/Vision to Architectural-image 13.jpg" alt="Home Exterior 1" class="image1">
+          </li>
+
+          <span class="dash-header">|</span>
+        <li class="nav__item"><a href="service.html#showcase" target="_blank" class="nav__link nav__link-1">About</a></li>
+
+          <a href="service.html#contact" target="_blank" class="cta" style="display: none;">Schedule a Consultation</a>
+        </ul>
       </div>
-  
-      <div class="hero-text">
-        <h2 id="hero-texth2">WestCraft:</h2>
-        <h1 id="hero-texth1">Luxury Home Builder & Remodeling in Arizona</h1>
-        <p id="hero-textp"><strong>WestCraft</strong> is a premier <strong>luxury home builder in Arizona</strong>, specializing in <strong>full home remodel</strong> &
-        <strong>custom homes</strong> tailored to your lifestyle. We create timeless architecture with top-tier craftsmanship 
-            & finishes. Together as a team, we build the right way.</p>
+
+      <div class="nav-social" id="nav-social">
+        <a href="service.html#contact" target="_blank" class="cta">Lets Chat</a>
       </div>
-    </section>
-  
-  <!--scroll down arrow-->
-  <div class="section-border">
+    </div>
+  </nav>
+</header>
+
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <h2 id="hero-texth2">WestCraft:</h2>
+      <h1 id="hero-texth1">Luxury Home Builder & Remodeling in Arizona</h1>
+      <p id="hero-textp">
+        <strong>WestCraft</strong> is a premier <strong>luxury home builder in Arizona</strong>,  tailored to your lifestyle. We create
+        timeless architecture with top-tier craftsmanship & finishes. Together as a team, we build the right way.
+      </p>
+    <div class="btn-container"> 
+      <a href="service.html#contact" class="btn-animation">Schedule a Consultation</a>
+    </div>
+    </div>
+  </div>
+
+    <div class="section-border">
     <div class="scroll-arrow" onclick="scrollToSection('scrolltome')">
       <i class="fa-solid fa-arrow-down"></i>
     </div>
     </div>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelector('.title-animate').classList.add('title-active');
+    }, 300); // 3000ms = 3 seconds
+  });
+</script>
+</section>
 
 
 
@@ -125,39 +146,53 @@
 
 
 
-<!-- Why Choose Us -->
-<section class="why-choose">
-  <div class="why-choose-content">
-    <div class="why-text scroll-animateY scrolltome">
-      <h3 class="scroll-animateY"><span>Why Arizona Homeowners Trust</span> <br><strong>WestCraft</strong></h3>
+
+
+
+<!-- Why Arizona Homeowners Trust WestCraft -->
+<section class="why-choose scrolltome">
+  <div class="why-choose-container">
+    <div class="why-left">
+      <h3 class="scroll-animate-y"><span>Why Arizona Homeowners Trust</span><br><strong>WestCraft</strong></h3>
       <hr class="why-line">
-      <ul class="scroll-animate">
+      <p class="why-subtext">A trusted name in luxury construction — combining craftsmanship, creativity, and transparency to redefine homebuilding excellence.</p>
+    </div>
+
+    <div class="why-right">
+      <ul class="why-list">
         <li>
-          With over 30 years of hands-on experience, WestCraft has earned a reputation for crafting luxurious custom homes that reflect both precision and personality — turning visions into refined living spaces.
+          <i class="fa-regular fa-circle"></i>
+          <p>Over 30 years of hands-on experience crafting homes that balance architectural beauty and enduring functionality.</p>
         </li>
         <li>
-          Every design we execute is tailored from the ground up — blending architecture, functionality, and your unique lifestyle into a one-of-a-kind home that’s built to inspire and endure.
+          <i class="fa-regular fa-circle"></i>
+          <p>Each design is tailored from the ground up — built to reflect your lifestyle and elevate daily living.</p>
         </li>
         <li>
-          From full-home renovations to detailed outdoor transformations, we specialize in high-end remodeling that enhances not just aesthetics, but livability and long-term value.
+          <i class="fa-regular fa-circle"></i>
+          <p>Specializing in high-end renovations and custom builds that blend modern aesthetics with timeless craftsmanship.</p>
         </li>
         <li>
-          Our process prioritizes open communication, accurate project timelines, and transparent pricing — so you’re never left guessing, and always confident in what comes next.
+          <i class="fa-regular fa-circle"></i>
+          <p>Transparent communication, precise timelines, and a seamless process that keeps you informed every step of the way.</p>
         </li>
         <li>
-          We are a fully licensed, bonded, and insured general contractor proudly based in Arizona — meeting all state building standards while exceeding expectations with professional integrity.
+          <i class="fa-regular fa-circle"></i>
+          <p>Licensed, bonded, and insured — proudly upholding Arizona’s highest construction standards with integrity and care.</p>
         </li>
       </ul>
     </div>
   </div>
 </section>
 
-  
 
 
 
+
+
   
-  
+
+
 
   
   
@@ -167,7 +202,7 @@
 <section id="section4" class="section4">
   <h2 class="section4h2 scroll-animateY">Our Mission</h2>
   <div class="section4-container">
-    <div class="section4-left-div scroll-animate">
+    <div class="section4-left-div ">
       <h2>Building More Than Homes. Crafting Legacies.</h2>
     </div>
     <div class="section4-right-div">
@@ -197,9 +232,9 @@
 <section class="about-metrics-section">
   <div class="metrics-container" id="aboutussection">
     <div class="metrics-text">
-      <p class="subtitle scroll-animateY">About Us</p>
-      <h2 class="scroll-animateY">Crafting Arizona’s Finest Custom Homes</h2>
-      <p class="description scroll-animate">
+      <p class="subtitle scroll-animate-y">About Us</p>
+      <h2 class="">Crafting Arizona’s Finest Custom Homes</h2>
+      <p class="description ">
       With over 30 years of experience, WestCraft is built on a foundation of quality construction, reliable project management, and strong client relationships. From new builds to full remodels, every project reflects a dedication to long-term value and fine craftsmanship.
       Led by owner Tom Decker, WestCraft remains hands-on and detail-driven, ensuring each home is built with integrity and purpose.
       <br><br>
@@ -208,14 +243,17 @@
       <br><br>
       </p>
 
+      <div class="btn-container-about"> 
+        <a class="contact-button" href="service.html#leadership">View Team</a>
+      </div>
 
-      <div class="aboutus-image-container-1 scroll-animate">
-        <img src="picture/tom-photo.jpg" alt="Luxury Home in Arizona" />
+      <div class="aboutus-image-container-1 ">
+        <img src="picture/Vision to Architectural-image 1.jpg" alt="Luxury Home in Arizona" />
       </div>
     </div>
 
-    <div class="aboutus-image-container scroll-animate">
-      <img src="picture/tom-photo.jpg" alt="Luxury Home in Arizona" />
+    <div class="aboutus-image-container">
+      <img src="picture/Vision to Architectural-image 1.jpg" alt="Luxury Home in Arizona" />
       <hr class="aboutus-line">
     </div>
   </div>
@@ -224,62 +262,6 @@
 
 
   
-
-
-
-
-
-
-    <div class="region-content" id="Legacy">
-      <h2 class="lagacy-heading scroll-animate" id="lagacy-section">The WestCraft Experience:<br> From Vision to Architectural Legacy</h2>
-    <hr class="lagacy-heading-line">
-    <p class="lagacy-subheading scroll-animate">At WestCraft, we don’t just build homes—we sculpt statements of luxury, purpose, and timeless artistry. Each phase is crafted around you, with zero compromise. Explore the journey.</p>
-      <section id="vision" class="region-content-block">
-<!-- Top Horizontal Image -->
-        <div class="vision-top-image scroll-animate">
-          <img src="picture/Vision to Architectural-image 7.jpg" alt="Vision - Top Banner" />
-        </div>
-<!-- Side-by-Side Layout -->
-        <div class="vision-inner">
-<!-- Left Side Image -->
-          <div class="vision-left-image scroll-animate">
-            <img src="picture/Vision to Architectural-image 10.jpg" alt="Vision - Side" />
-          </div>
-<!-- Right Content Block -->
-          <div class="lagacy-feature-content">
-            <h3 >Vision & Discovery</h3>
-            <hr class="lagacy-title-line">
-            <p>Every masterpiece begins with a conversation. We dive deep into your lifestyle, passions, and vision to shape a property as unique as your fingerprint.</p>
-            <p>This early-stage collaboration ensures your voice drives the project, and no detail is left unexplored—from your aesthetic tastes to the function of each room.</p>
-            <ul >
-              <li><strong>✔ In-Depth Consultations:</strong> We learn what inspires you—architecture, art, travel, or legacy.</li>
-              <li><strong>✔ Site Analysis:</strong> Evaluating terrain, light, and environment to optimize placement and presence.</li>
-              <li><strong>✔ Lifestyle-Centric Planning:</strong> Your routines, guests, and ambitions shape the framework.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-        
-
-      <section id="design" class="region-content-block">
-          <div class="design-inner">
-            <div class="lagacy-feature-content">
-              <h3 >Design & Architecture</h3>
-              <hr class="lagacy-title-line">
-              <p >
-                Partnering with elite architects and artisans, WestCraft transforms your ideas renderings & models into a one-of-a-kind home concept.
-              </p>
-              <p >
-                From minimalist desert modern to organic stonework and steel, each detail is tailored to make your home a living
-                sculpture.
-              </p>
-            <div class="design-top-image scroll-animate">
-              <img src="picture/Vision to Architectural-image 3.jpg" alt="Design - Top Banner" />
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
 
 
 
@@ -298,9 +280,9 @@
 
 <!--Our Process-->
 <div class="process-wrapper" id="locations-section">
-  <h2 class="process-heading scroll-animate">Our Custom Home Building Process</h2>
+  <h2 class="process-heading scroll-animate-y">Our Custom Home Building Process</h2>
   <hr class="process-heading-line">
-  <p class="process-subheading scroll-animate">At WestCraft, we prioritize the understanding of the process & the involvement of your project</p>
+  <p class="process-subheading ">At WestCraft, we prioritize the understanding of the process & the involvement of your project</p>
 
   <section class="process-section">
     <div class="process-container">
@@ -319,8 +301,8 @@
 
         <section id="Discovery" class="process-content-block">
           <div class="process-inner">
-            <div class="process-left-image scroll-animate">
-              <img src="picture/ourprocess-2.jpg" alt="Vision - Side" />
+            <div class="process-left-image ">
+              <img src="picture/ourprocess-2-edit.jpg" alt="Vision - Side" />
             </div>
             <div class="process-feature-content">
               <h3>Vision</h3>
@@ -347,15 +329,15 @@
                 <li><strong>✔ Unified Vision:</strong> Our role is to build in sync with the design intent—maintaining continuity between your architect’s plans and what’s delivered on site.</li>
               </ul>
             </div>
-            <div class="process-left-image scroll-animate">
-              <img src="picture/ourprocess-1.jpg" alt="Vision - Side" />
+            <div class="process-left-image">
+              <img src="picture/ourprocess-1-edit.jpg" alt="Vision - Side" />
             </div>
           </div>
         </section>
 
         <section id="Consultation" class="process-content-block">
           <div class="process-inner">
-            <div class="process-left-image scroll-animate">
+            <div class="process-left-image">
               <img src="picture/process-con.jpeg" alt="Vision - Side" />
             </div>
             <div class="process-feature-content">
@@ -383,8 +365,8 @@
                   <li><strong>✔ Legacy-Driven Craftsmanship:</strong> Built to endure—our projects reflect timeless construction methods designed to last for decades to come.</li>
                 </ul>
             </div>
-            <div class="process-left-image scroll-animate">
-              <img src="picture/iamge7.jpg" alt="Vision - Side" />
+            <div class="process-left-image">
+              <img src="division/home6-edit.png" alt="Vision - Side" />
             </div>
           </div>
         </section>
@@ -406,39 +388,71 @@
 
 
   
-  <!-- Testimonials -->
-  <section class="testimonials">
-    <h3>What Our Clients Say</h3>
-    <hr class="testimonial-line">
-    <div class="testimonial-carousel" id="carousel">
-      <div class="carousel-track" id="carousel-track">
-        <div class="testimonial">
-          <h4>Emily R. - Scottsdale</h4>
-          <p>WestCraft did a great job. The best home builders in Arizona!</p>
-        </div>
-        <div class="testimonial">
-          <h4>Michael T. - Phoenix</h4>
-          <p>The crew was honest, timely, and talented. I highly recommend their work!</p>
-        </div>
-        <div class="testimonial">
-          <h4>Sarah L. - Camelback</h4>
-          <p>Every detail was polished. I felt supported through every stage of the build.</p>
-        </div>
-        <div class="testimonial">
-          <h4>David W. Chandler</h4>
-          <p>From demo to finishing touches, they worked like pros and delivered excellence.</p>
-        </div>
-        <div class="testimonial">
-          <h4>Rachel S. - Paradise Valley</h4>
-          <p>I walk through our home amazed at how perfectly everything came together.</p>
-        </div>
-        <div class="testimonial">
-          <h4>Josh M. - Camelback</h4>
-          <p>The communication, craftsmanship, and timeline were all spot-on.</p>
-        </div>
+<!-- Testimonials -->
+<section class="testimonials">
+  <h3>What Our Clients Say</h3>
+  <p class="testimonial-subtext">Hear from homeowners who trusted WestCraft to transform their space with precision and elegance — where every detail reflects artistry, craftsmanship, and the essence of a home truly made for you.</p>
+  <hr class="testimonial-line">
+  <div class="testimonial-carousel" id="carousel">
+    <div class="carousel-track" id="carousel-track">
+
+      <div class="testimonial">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p>"WestCraft exceeded every expectation. Their attention to detail gave our home a refined elegance that stands out in the neighborhood."</p>
+        <hr class="name-divider">
+        <h4>Emily R.</h4>
+        <span class="state">Arizona</span>
       </div>
+
+      <div class="testimonial">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p>"The crew worked with remarkable professionalism and precision — every tile aligned flawlessly, every promise kept."</p>
+        <hr class="name-divider">
+        <h4>Michael T.</h4>
+        <span class="state">Arizona</span>
+      </div>
+
+      <div class="testimonial">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p>"From design to completion, they made the process effortless. The result feels bespoke, sophisticated, and timeless."</p>
+        <hr class="name-divider">
+        <h4>Sarah L.</h4>
+        <span class="state">Arizona</span>
+      </div>
+
+      <div class="testimonial">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p>"The craftsmanship speaks for itself — WestCraft turned our vision into a space that feels artfully constructed and beautifully balanced."</p>
+        <hr class="name-divider">
+        <h4>David W.</h4>
+        <span class="state">Arizona</span>
+      </div>
+
+      <div class="testimonial">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p>"Every corner and contour was executed to perfection. Their work reflects skill and an uncommon dedication to quality."</p>
+        <hr class="name-divider">
+        <h4>Rachel S.</h4>
+        <span class="state">Arizona</span>
+      </div>
+
+      <div class="testimonial">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p>"Impeccable service from start to finish. The entire experience was seamless, and the craftsmanship truly luxurious."</p>
+        <hr class="name-divider">
+        <h4>Josh M.</h4>
+        <span class="state">Arizona</span>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   
 
@@ -456,7 +470,7 @@
   
 
 
-    <!-- Footer -->
+  <!-- Footer -->
   <footer>
     <div class="footer-grid">
       <div class="footer-col footer-col-logo">
@@ -479,7 +493,7 @@
         <h4>Follow Us</h4>
         <hr class="footer-title-line">
         <div class="socials">
-          <a href="https://www.instagram.com/westcraftllc/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.instagram.com/westcraftbuilt/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
           <span class="footer-dash">|</span>
           <a href="https://www.facebook.com/profile.php?id=61577408346853" target="_blank"><i class="fa-brands fa-facebook"></i></a>
           <span class="footer-dash">|</span>
@@ -521,9 +535,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
