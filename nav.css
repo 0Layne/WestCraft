@@ -63,20 +63,23 @@ img {
 .header {
   position: fixed;
   width: 100%;
-  background-color: #1e293b;
+  background-color: transparent;
   z-index: 99;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 3rem 1rem;
   /* Enlarged padding on load */
-  transition: padding 0.1s ease, height 0.1s ease;
+  transition: padding 0.1s ease, height 0.1s ease, background-color 0.3s ease;
   transition: all 0.7s ease;
   margin: 0 auto;
 }
-.header:hover{
-  background-color: #27354d;
+.header--scrolled {
+  background-color: #1e293b; /* dark blue-gray */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, padding 0.3s ease;
 }
+
 .header--fixed {
   position: fixed;
   top: 0;
@@ -165,6 +168,111 @@ img {
 /*===== NAV =====*/
 
 
+
+
+
+/* ===== DROPDOWN MENU STYLES ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  content: " ▼";
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1e293bde;
+  border-radius: 0.3rem;
+  display: none;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  min-width: 180px;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+
+.dropdown-toggle::after {
+  content: "▼";          /* Down arrow */
+  font-size: 0.7rem;
+  display: inline-block;
+  margin-left: 0.3rem;
+  transition: transform 0.5s ease; /* Smooth rotation */
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: #fff;
+  text-align: left;
+  transition: background 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background: #27354d;
+}
+
+/* Hover effect on desktop */
+@media (min-width: 1091px) {
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    
+  }
+    .dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg);
+     transition: all 0.5s ease;
+  }
+}
+
+/* ===== MOBILE (click to slide out right) ===== */
+@media (max-width: 1090px) {
+  .dropdown-menu {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: transparent;
+    padding-left: 1.5rem;
+    opacity: 1;
+    visibility: visible;
+    z-index: 9999; /* ensure it’s above background overlays */
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: flex !important;
+  }
+
+  /* just to ensure the nav menu doesn’t clip content */
+  #nav-menu {
+    overflow: visible !important;
+  }
+
+  /* optional for a smooth slide-down effect */
+  .dropdown-menu {
+    transition: all 0.3s ease;
+  }
+}
+
+
+
+
+
 @media screen and (max-width: 1090px) {
   .nav {
     position: fixed;
@@ -227,7 +335,7 @@ img {
   }
 
   .header{
-    padding: 1vh;
+    padding: 1vh !important;
   }
   .nav__menu {
     position: absolute;
@@ -269,7 +377,7 @@ img {
   .nav__menu {
     position: absolute;
     left: 50%;
-    top: 30% !important;
+    top:20% !important;
     transform: translateX(-50%);
     display: flex;
     gap: 2rem;
@@ -278,7 +386,7 @@ img {
   }
 
   .logo-mobile{
-    height: 100px !important;
+    height: 90px !important;
   }
   .cta{
     display: block !important;
@@ -290,14 +398,14 @@ img {
 }
 
 
-  .nav__link{
+  .nav__link-1{
     position: relative;
     font-size: unset;
   }
-  .nav__link:is(:hover, :focus-visible) {
+  .nav__link-1:is(:hover, :focus-visible) {
     background: none;
   }
-.nav__link::after {
+.nav__link-1::after {
   content: url("picture/hover-underline.png");
   position: absolute;
   bottom: -5px;
@@ -307,7 +415,7 @@ img {
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.nav__link:is(:hover, :focus-visible)::after {
+.nav__link-1:is(:hover, :focus-visible)::after {
   opacity: 1;
   transform: translateX(-50%) scale(0.15); /* Shrinks the image slightly */
 }
@@ -876,4 +984,3 @@ footer:hover{
     width: 15%;
   }
 }
-
