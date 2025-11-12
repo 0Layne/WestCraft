@@ -9,75 +9,76 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  
-  <link rel="icon" type="image/png" href="/icon-logo/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="/icon-logo/favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icon-logo/apple-touch-icon.png">
-  <link rel="manifest" href="/icon-logo/site.webmanifest">
-  <meta name="apple-mobile-web-app-title" content="WestCraft">
+  <link rel="icon" type="image/png" href="icon-logo/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="icon-logo/favicon.svg" />
+  <link rel="shortcut icon" href="icon-logo/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icon-logo/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+  <link rel="manifest" href="icon-logo/site.webmanifest" />
 
   <link rel="stylesheet" href="footer.css" />
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="script.js">
-
-        <!-- Controls Safari/iOS status bar -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <!-- Modern browsers theme color -->
-    <meta name="theme-color" content="#1e293b">
 </head>
 
 <body>
-        <!-- Header -->
+      <!-- Header -->
     <header class="header" id="main-header">
-      <a href="#" class="header__logo"><img src="picture/westcraft-logo.png" alt="WestCraft Logo"
-          class="logo-mobile"></a>
-          
-  
-      <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
-  
-      <nav class="nav" id="nav-menu">
-        <div class="nav__content bd-grid">
-  
-          <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
-  
-          <div class="header-left">
-            <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo" />
-            <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo logo-menu" />
-          </div>
-  
-          <div class="nav__menu">
-            <ul class="nav__list">
-              <li class="nav__item"><a href="index.html" class="nav__link active">Home</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#locations-section" class="nav__link">Process</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="service.html#showcase" target="_blank" class="nav__link">Showcase</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#Legacy" class="nav__link">Legacy</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#aboutussection" class="nav__link">About</a></li>
-              <a href="service.html#contact" target="_blank" class="cta" style="display: none;">Schedule a Consultation</a>
+  <a href="#" class="header__logo">
+    <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo-mobile">
+  </a>
+
+  <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+
+  <nav class="nav" id="nav-menu">
+    <div class="nav__content bd-grid">
+      <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+
+      <div class="header-left">
+        <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo" />
+        <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo logo-menu" />
+      </div>
+
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html" class="nav__link nav__link-1 active">Home</a></li>
+          <span class="dash-header">|</span>
+          <li class="nav__item"><a href="index.html#locations-section" class="nav__link nav__link-1">Process</a></li>
+          <span class="dash-header">|</span>
+
+          <!-- 🔹 TILE DROPDOWN -->
+          <li class="nav__item dropdown">
+            <a href="divsion.html" class="nav__link dropdown-toggle">Divisions</a>
+            <ul class="dropdown-menu">
+              <li><a href="divsion.html#tile-section">Tile</a></li>
+              <li><a href="divsion.html#stone-section">Stone</a></li>
+              <li><a href="build.html#remodel-section">Remodel</a></li>
+              <li><a href="build.html#home-section">Home</a></li>
             </ul>
-          </div>
-  
-        <div class="nav-social" id="nav-social">
-          <a href="service.html#contact" target="_blank" class="cta">Schedule a Consultation</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+          </li>
+
+          <span class="dash-header">|</span>
+        <li class="nav__item"><a href="service.html#showcase" target="_blank" class="nav__link nav__link-1">About</a></li>
+
+          <a href="service.html#contact" target="_blank" class="cta" style="display: none;">Schedule a Consultation</a>
+        </ul>
+      </div>
+
+      <div class="nav-social" id="nav-social">
+        <a href="service.html#contact" target="_blank" class="cta">Lets Chat</a>
+      </div>
+    </div>
+  </nav>
+</header>
 
   
 
-  <section class="legal-section">
+  <section class="legal-section hero-section">
     <div class="container">
       <h1>Privacy Policy</h1>
       <p>Effective Date: July 19, 2025</p>
 
-      <p><strong>AzWestCraft</strong> ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy describes how we collect, use, and safeguard your personal information when you visit our website.</p>
+      <p><strong>WestCraft</strong> ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy describes how we collect, use, and safeguard your personal information when you visit our website.</p>
 
       <h2>Information We Collect</h2>
       <p>We may collect personal information you voluntarily provide to us, such as your name, email address, phone number, and project information when filling out forms.</p>
@@ -140,8 +141,3 @@
 </body>
 
 </html>
-
-
-
-
-
