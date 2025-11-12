@@ -25,86 +25,91 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
   integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-        <!-- Controls Safari/iOS status bar -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <!-- Modern browsers theme color -->
-    <meta name="theme-color" content="#1e293b">
 </head>
 
 <body>
   <!-- Hero Section -->
-<section class="hero-wrapper">
-        <!-- Header -->
+
+      <!-- Header -->
     <header class="header" id="main-header">
-      <a href="#" class="header__logo"><img src="picture/westcraft-logo.png" alt="WestCraft Logo"
-          class="logo-mobile"></a>
-          
-  
-      <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
-  
-      <nav class="nav" id="nav-menu">
-        <div class="nav__content bd-grid">
-  
-          <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
-  
-          <div class="header-left">
-            <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo" />
-            <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo logo-menu" />
-          </div>
-  
-          <div class="nav__menu">
-            <ul class="nav__list">
-              <li class="nav__item"><a href="index.html" class="nav__link active">Home</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#locations-section" class="nav__link">Process</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="service.html#showcase" target="_blank" class="nav__link">Showcase</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#Legacy" class="nav__link">Legacy</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#aboutussection" class="nav__link">About</a></li>
-              <a href="service.html#contact" target="_blank" class="cta" style="display: none;">Schedule a Consultation</a>
+  <a href="#" class="header__logo">
+    <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo-mobile">
+  </a>
+
+  <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+
+  <nav class="nav" id="nav-menu">
+    <div class="nav__content bd-grid">
+      <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+
+      <div class="header-left">
+        <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo" />
+        <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo logo-menu" />
+      </div>
+
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html" class="nav__link nav__link-1 active">Home</a></li>
+          <span class="dash-header">|</span>
+          <li class="nav__item"><a href="index.html#locations-section" class="nav__link nav__link-1">Process</a></li>
+          <span class="dash-header">|</span>
+
+          <!-- 🔹 TILE DROPDOWN -->
+          <li class="nav__item dropdown">
+            <a href="divsion.html" class="nav__link dropdown-toggle">Divisions</a>
+            <ul class="dropdown-menu">
+              <li><a href="divsion.html#tile-section">Tile</a></li>
+              <li><a href="divsion.html#stone-section">Stone</a></li>
+              <li><a href="build.html#remodel-section">Remodel</a></li>
+              <li><a href="build.html#home-section">Home</a></li>
             </ul>
-          </div>
-  
-        <div class="nav-social" id="nav-social">
-          <a href="service.html#contact" target="_blank" class="cta">Schedule a Consultation</a>
-          </div>
-        </div>
-      </nav>
-    </header>
-  <section class="hero-section">
-  
-    <div class="hero-images">
-      <img src="showcase/iamge46.jpg" alt="Home Exterior 2" class="image2">
-      <img src="picture/service-image.jpeg" alt="Home Exterior 1" class="image1">
-    </div>
+          </li>
 
-    <div class="hero-text">
-      <h2>WestCraft</h2>
-      <h1>Architectural Artistry. Designed Around You.</h1>
-      <p>
-        <strong>WestCraft</strong> creates more than homes — we craft bespoke estates that reflect your identity, values, and
-        legacy. As Arizona’s premier custom luxury home builder, every project is a collaboration in vision, design, and
-        precision craftsmanship.
-      </p>
+          <span class="dash-header">|</span>
+        <li class="nav__item"><a href="service.html#showcase" target="_blank" class="nav__link nav__link-1">About</a></li>
+
+          <a href="service.html#contact" target="_blank" class="cta" style="display: none;">Schedule a Consultation</a>
+        </ul>
+      </div>
+
+      <div class="nav-social" id="nav-social">
+        <a href="service.html#contact" target="_blank" class="cta">Lets Chat</a>
+      </div>
     </div>
-  </section>
-  </section>
-  
-  
-  <!--scroll down arrow-->
-  <div class="section-border">
-    <div class="scroll-arrow" onclick="scrollToSection('scrolltome')">
-      <i class="fa-solid fa-arrow-down" style="color: white;"></i>
-    </div>
+  </nav>
+</header>
+ 
+
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+
+<div class="hero-content">
+  <div class="hero-text">
+    <h2 id="hero-texth2">Contact WestCraft:</h2>
+    <h1 id="hero-texth1">Connect With Our Team of Experts</h1>
+    <p id="hero-textp">
+      Whether you’re ready to start your custom home, plan a remodel, or explore our past work,
+      <strong>WestCraft</strong> is here to guide you every step of the way. Get in touch with our
+      dedicated team, explore our showcase of completed projects, and discover how craftsmanship and
+      collaboration define every build we create.
+    </p>
   </div>
+</div>
 
+<div class="section-border">
+  <div class="scroll-arrow" onclick="scrollToSection('scrolltome')">
+    <i class="fa-solid fa-arrow-down"></i>
+  </div>
+</div>
 
-
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelector('.title-animate').classList.add('title-active');
+    }, 300); // 3000ms = 3 seconds
+  });
+</script>
+</section>
 
 
 
@@ -124,6 +129,7 @@
         <img src="showcase/iamge8.jpg" alt="Coming Soon">
         <img src="showcase/iamge12.jpg" alt="Coming Soon">
         <img src="showcase/iamge45.jpg" alt="Coming Soon">
+        <img src="showcase/iamge40.jpg" alt="Coming Soon">
         <img src="showcase/iamge16.jpg" alt="Coming Soon">
         <img src="showcase/iamge17.jpg" alt="Coming Soon">
         <img src="showcase/iamge18.jpg" alt="Coming Soon">
@@ -134,16 +140,19 @@
         <img src="showcase/iamge25.jpg" alt="Coming Soon">
         <img src="showcase/iamge26.jpg" alt="Coming Soon">
         <img src="showcase/iamge27.jpg" alt="Coming Soon">
+        <img src="showcase/iamge37.jpg" alt="Coming Soon">
         <img src="showcase/iamge29.jpg" alt="Coming Soon">
         <img src="showcase/iamge30.jpg" alt="Coming Soon">
         <img src="showcase/iamge31.jpg" alt="Coming Soon">
         <img src="showcase/iamge36.jpg" alt="Coming Soon">
         <img src="showcase/iamge41.jpg" alt="Coming Soon">
+        <img src="showcase/iamge39.jpg" alt="Coming Soon">
         <img src="showcase/iamge43.jpg" alt="Coming Soon">
         <img src="showcase/iamge44.jpg" alt="Coming Soon">
         <img src="showcase/iamge45.jpg" alt="Coming Soon">
         <img src="showcase/image5.jpg" alt="Coming Soon">
         <img src="showcase/iamge21.jpg" alt="Coming Soon">
+        <img src="showcase/image6.jpg" alt="Coming Soon">
       </div>
     </div>
     <div class="arrow-row scrolltome">
@@ -158,22 +167,39 @@
    <div class="gallery-row">
     <div class="gallery-wrapper">
       <div class="gallery-track" data-row="1">
-        <img src="showcase/iamge4.jpg" alt="Coming Soon">
+        <img src="picture/IMG_3015.jpeg" alt="Coming Soon">
         <img src="showcase/iamge22.jpg" alt="Coming Soon">
         <img src="showcase/iamge7.jpg" alt="Coming Soon">
         <img src="showcase/iamge9.jpg" alt="Coming Soon">
         <img src="showcase/iamge23.jpg" alt="Coming Soon">
-        <img src="showcase/iamge28.jpg" alt="Coming Soon">
+
+        <img src="division/home9.png" alt="Coming Soon">
+        <img src="division/home8.png" alt="Coming Soon">
+        <img src="division/home7.png" alt="Coming Soon">
+        <img src="division/home6.png" alt="Coming Soon">
+        <img src="division/home5.png" alt="Coming Soon">
+        <img src="division/home4.png" alt="Coming Soon">
+        <img src="division/home-3.png" alt="Coming Soon">
+        <img src="division/home.png" alt="Coming Soon">
+        <img src="division/home10.png" alt="Coming Soon">
+        <img src="division/IMG_3019.png" alt="Coming Soon">
+        <img src="division/IMG_3020.png" alt="Coming Soon">
+        <img src="division/remodel.png" alt="Coming Soon">
+        <img src="division/remodel1.png" alt="Coming Soon">
+        <img src="division/remodel2.png" alt="Coming Soon">
+        <img src="division/service1-6.jpg" alt="Coming Soon">
+        <img src="division/stone1.png" alt="Coming Soon">
+        <img src="division/stone-stair.jpg" alt="Coming Soon">
+        <img src="division/tile1.png" alt="Coming Soon">
+        <img src="division/Vision to Architectural-image 2.jpg" alt="Coming Soon">
+        <img src="division/Vision to Architectural-image 8.jpg" alt="Coming Soon">
+
+
         <img src="showcase/iamge33.jpg" alt="Coming Soon">
         <img src="showcase/iamge34.jpg" alt="Coming Soon">
         <img src="showcase/iamge35.jpg" alt="Coming Soon">
-        <img src="showcase/iamge37.jpg" alt="Coming Soon">
         <img src="showcase/iamge38.jpg" alt="Coming Soon">
-        <img src="showcase/iamge39.jpg" alt="Coming Soon">
-        <img src="showcase/iamge40.jpg" alt="Coming Soon">
-        <img src="showcase/iamge42.jpg" alt="Coming Soon">
         <img src="showcase/iamge14.jpg" alt="Coming Soon">
-        <img src="showcase/image6.jpg" alt="Coming Soon">
       </div>
     </div>
     <div class="arrow-row">
@@ -199,41 +225,106 @@
 
 
 
+
+
+<!-- Leadership Section -->
+<section class="leadership-section" id="leadership">
+  <div class="leadership-content">
+    <div class="leadership-header scroll-animateY">
+      <h3><span>Meet the</span><br><strong>Leadership Team</strong></h3>
+      <hr class="leadership-line">
+      <p>
+        The team behind WestCraft is more than a group of builders — they’re visionaries shaping Arizona’s 
+        most refined living spaces. Every project is guided by decades of craftsmanship, collaboration, 
+        and an unwavering commitment to excellence.
+      </p>
+    </div>
+
+    <div class="leader-row scroll-animateY">
+      <div class="leader-img">
+        <img src="picture/IMG_3084 (1).jpeg" alt="Tom Decker - president">
+      </div>
+      <div class="leader-info">
+        <h4>Tom Decker</h4>
+        <p class="title">President</p>
+        <p>
+          Tom Decker started his construction career framing custom homes in Desert Mountain and DC Ranch throughout the 90’s. 
+          After working with his brothers and sisters as a supervisor he turned his attention to general contracting. Experiencing 
+          details and quality while working for the leading builder in Arizona it’s no wonder why Tom has picked up where he left 
+          off and creating a family operated custom home builder company.</p>
+          <p style="margin-top: 2vh; margin-bottom: 2vh;">
+          “I have always thought the western part of the country has 
+          the most talented craftsman. That’s how the name WESTCRAFT was created”.</p>
+          <p>
+          Having the vision of details and passion to be perfect 
+          is a good habit to have when building custom homes. Tom enjoys being with his family and when he has a free moment you will find him on a stream.</p>
+        </p>
+      </div>
+    </div>
+
+    <div class="leader-row reverse scroll-animateY">
+      <div class="leader-img">
+        <img src="picture/IMG_3046 (1).jpeg" alt="Codee Decker - Superintendent">
+      </div>
+      <div class="leader-info">
+        <h4>Codee Decker</h4>
+        <p class="title">Superintendent</p>
+        <p>
+          Codee is the Superintendent at WestCraft, overseeing each custom home build with precision and genuine care for every client. With years of
+           hands-on experience in construction management, he ensures every detail reflects WestCraft’s high standards of craftsmanship and quality.
+          Outside of work, Codee enjoys flying airplanes — a passion that mirrors his focus, discipline, and commitment to excellence in every project.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
 <footer>
 <section class="contact-section scrolltome" id="contact">
   <div class="contact-container">
     
     <!-- Left side: Title -->
     <div class="contact-left">
-      <h4 class="scroll-animate">
+      <h4>
         Your Dream Home Starts Here — Reach Out Today to Begin the Journey Together with WestCraft.
       </h4>
     </div>
 
     <!-- Right side: Form -->
     <div class="contact-right">
-    <form class="contact-form scroll-animateY" id="contactForm" action="https://formspree.io/f/mpwrjngo" method="post">
-      <label class="scroll-animate">
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mpwrjngo" method="post">
+      <label>
         <input type="text" name="name" required placeholder="First and Last name">
       </label>
   
-      <label class="scroll-animate">
+      <label>
         <input type="tel" name="phone" required placeholder="Phone">
       </label>
   
-      <label class="scroll-animate">
+      <label>
         <input type="email" name="email" required placeholder="Email">
       </label>
   
-      <label class="scroll-animate">
+      <label>
         <input type="text" name="location" required placeholder="Location">
       </label>
   
-      <label class="scroll-animate">
+      <label>
         <textarea name="project" rows="4" placeholder="Project Overview (Optional)"></textarea>
       </label>
   
-      <button class="scroll-animate contact-button" type="submit">Send</button>
+      <button class=" contact-button" type="submit">Send</button>
     </form>
     </div>
   </div>
@@ -252,7 +343,6 @@
 
 
 
-
     
   
   
@@ -264,14 +354,16 @@
   
   
  <!-- Footer -->
-  <div class="footer-grid">
-      <div class="footer-col">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-logo">
         <div class="footer-logo"><img src="picture/westcraft-logo.png" alt="WestCraft Logo"></div>
         <div class="footer-logo-mobile"><img src="picture/westcraft-logo-w-square.png" alt="WestCraft Logo"></div>
       </div>
       <div class="footer-col">
         <h2>WestCraft LLC</h2>
-        <p class="license-footer">license Bonded Insured <br> KB02 • 360127</p>
+        <p class="license-footer">licensed, bonded, and insured <br> KB02 • 360127</p>
+        <br>
+        <img class="footer-icon-image" src="picture/bbb-logo.png">
       </div>
       <div class="footer-col">
         <h4>Contact Info</h4>
@@ -283,7 +375,7 @@
         <h4>Follow Us</h4>
         <hr class="footer-title-line">
         <div class="socials">
-          <a href="https://www.instagram.com/westcraftllc/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.instagram.com/westcraftbuilt/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
           <span class="footer-dash">|</span>
           <a href="https://www.facebook.com/profile.php?id=61577408346853" target="_blank"><i class="fa-brands fa-facebook"></i></a>
           <span class="footer-dash">|</span>
@@ -291,9 +383,11 @@
           <span class="footer-dash">|</span>
           <a href="https://www.linkedin.com/in/tom-decker-a41997255/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         </div>
+        
         </div>
       </div>
         <!-- FOOTER LEGAL ROW -->
+
         <div class="footer-legal-container">
           <p class="copyright-footer">&copy; 2025 AZWestCraft. All rights reserved.</p>
           <div class="footer-legal-links">
@@ -539,6 +633,3 @@ document.querySelectorAll('.gallery-row').forEach(row => {
 </body>
 
 </html>
-
-
-
