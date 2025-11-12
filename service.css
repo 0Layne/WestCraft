@@ -14,10 +14,18 @@ body {
 }
 
 
-img {
-  max-width: 100%;
-  display: block;
+
+
+
+
+
+
+.header {
+  background-color: #1e293b !important; /* dark blue-gray */
 }
+
+
+
 .title-animate {
   opacity: 0;
   transform: translateY(100%);
@@ -44,6 +52,146 @@ img {
   transform: translateX(0);
 }
 
+.scroll-animate-y {
+  opacity: 0;
+  transform: translateY(50px); /* bigger slide distance */
+  transition: transform 1s ease-out, opacity 1s ease-out;
+  will-change: transform, opacity;
+}
+
+.scroll-animate-y.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: url('picture/service1-6.jpg') center center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Dark overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.62);
+  z-index: 1;
+}
+
+/* Text container */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Text alignment and spacing */
+.hero-text {
+  max-width: 45%;
+  color: #ffffff;
+}
+#hero-texth2{
+  font-size: 2rem;
+}
+#hero-texth1{
+  font-size: 1.5rem;
+}
+.hero-text h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0.5rem 0 1rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablets and smaller laptops */
+@media (max-width: 1025px) {
+  .hero-text {
+    margin-left: 15%;
+  }
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Tablets and mobile landscape */
+@media (max-width: 900px) {
+  .hero-text {
+    margin-left: 10%;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero-section {
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .hero-text {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+
+
+
 
 
 
@@ -56,15 +204,17 @@ img {
 
 .scroll-arrow {
   font-size: 1.3rem;
-  color: white;
+  color: rgb(255, 255, 255);
   cursor: pointer;
-  margin: 0 auto;
-  position: relative;
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
   transform: translateX(-50%);
-  width: 45px;
-  height: 45px;
-  background: #1e293b;
+  width: 85px;
+  height: 85px;
+  background: transparent;
   border-radius: 50%;
+  border: solid 1px rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,312 +224,11 @@ img {
 }
 
 .scroll-arrow:hover {
-  background: #000000;
+  background: #1e293b;
   transform: translateX(-50%) scale(1.2);
+  color: white;
 }
 
-/* Bounce Animation */
-@keyframes bounce {
-
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-
-  40% {
-    transform: translateX(-50%) translateY(-10px);
-  }
-
-  60% {
-    transform: translateX(-50%) translateY(-5px);
-  }
-}
-
-
-
-
-
-
-
-
-
-.hero-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(to right, #111827, #1f2937);
-  padding-left: 5rem;
-  padding-right: 5rem;
-  padding-top: 12rem;
-  padding-bottom: 5rem;
-  gap: 2rem;
-  flex-wrap: wrap;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-section::after {
-  content: '';
-  position: absolute;
-  bottom: -60px;
-  right: -130px;
-  width: 1000px;
-  height: 1000px;
-  background-image: url('picture/Westcraft-logo-w.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  opacity: 0.03; /* keep it subtle */
-  z-index: 0;
-  pointer-events: none;
-}
-
-
-.hero-images {
-  flex: 1;
-  max-width: 45%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 360px;
-}
-
-.image2 {
-  width: 100%;
-  max-width: 350px;
-  border-radius: 12px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-  position: relative;
-  z-index: 1;
-  margin: 0 auto;
-  transition: all 0.7s ease;
-}
-
-.image1 {
-  position: absolute;
-  top: -40px;
-  left: -40px;
-  width: 50%;
-  max-width: 250px;
-  border-radius: 12px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
-  z-index: 2;
-  transition: all 0.7s ease;
-}
-
-.image1:hover,
-.image2:hover {
-  transform: scale(1.03);
-}
-
-
-.hero-text {
-  flex: 1;
-  max-width: 50%;
-}
-
-.hero-text h2 {
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: #ffffff;
-}
-
-.hero-text h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin: 0.5rem 0 1rem;
-  color: #ffffff;
-}
-
-.hero-text p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #d1d5db;
-  margin-bottom: 1.5rem;
-}
-
-.features {
-  list-style: none;
-  margin-bottom: 1.5rem;
-}
-
-.features li {
-  margin-bottom: 0.5rem;
-  color: #f87171;
-  font-weight: 600;
-}
-
-.hero-number{
-  font-size: 1rem;
-  margin: 1rem;
-  font-weight: 700;
-}
-
-@media (max-width: 1090px) {
-  .hero-section {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0px;
-    padding-top: 14rem;
-    padding-bottom: 1vh;
-  }
-
-  .hero-images,
-  .hero-text {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .hero-images {
-    margin: 0 auto;
-    justify-content: center;
-    min-height: 270px;
-  }
-
-  .image2 {
-    max-width: 280px;
-    left: 100px;
-    margin: 0 auto;
-  }
-
-  .image1 {
-    top: -10px;
-    left: -50px;
-    max-width: 160px;
-  }
-
-  .box-below,
-  .box-left {
-    display: none;
-  }
-
-  .hero-text h1 {
-    font-size: 2.2rem;
-    margin: 0 auto;
-  }
-
-  .hero-text h2 {
-    font-size: 1.3rem;
-  }
-  .why-choose{
-    padding-top: 10vh;
-  }
-  .why-text ul li:hover .icon {
-    transform: none;
-}
-}
-@media (max-width: 900px) {
-  .hero-section {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0px;
-    padding-top: 12rem;
-    padding-bottom: 1vh;
-  }
-
-  .hero-images,
-  .hero-text {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .hero-images {
-    margin: 0 auto;
-    justify-content: center;
-    min-height: 270px;
-  }
-
-  .image2 {
-    max-width: 280px;
-    left: 100px;
-    margin: 0 auto;
-  }
-
-  .image1 {
-    top: -10px;
-    left: -50px;
-    max-width: 160px;
-  }
-
-  .box-below,
-  .box-left {
-    display: none;
-  }
-
-  .hero-text h1 {
-    font-size: 2.2rem;
-    margin: 0 auto;
-  }
-
-  .hero-text h2 {
-    font-size: 1.3rem;
-  }
-  .why-choose{
-    padding-top: 10vh;
-  }
-  .why-text ul li:hover .icon {
-    transform: none;
-}
-}
-@media (max-width: 768px) {
-  .hero-section{
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 10rem;
-  }
-  .hero-section::after {
-  content: '';
-  position: absolute;
-  bottom: 80px;
-  right: -130px;
-  width: 600px;
-  height: 600px;
-  background-image: url('picture/westcraft-logo-W.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  opacity: 0.07; /* keep it subtle */
-  z-index: 0;
-  pointer-events: none;
-}
-
-  .image2 {
-    width: 170px;
-    left: 50px;
-  }
-
-  .hero-images{
-    padding: 0px;
-    margin: 0 auto;
-    min-height: 240px !important;
-  }
-  .image1 {
-    width: 90px;
-    top: 5px;
-    left: -45px;
-  }
-
-  .hero-text h1 {
-    font-size: 1.3rem;
-  }
-
-  .hero-text h2 {
-    font-size: 1.1rem;
-  }
-
-  .hero-text p {
-    font-size: 0.95rem;
-    margin-bottom: 5px;
-  }
-  .hero-number{
-    padding-bottom: 1vh;
-  }
-
-}
 
 
 
@@ -400,15 +249,18 @@ img {
 
 .gallery-section::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background-image: url('picture/westcraft-logo-notxt.svg');
-  background-size: 50%;
+  bottom: 100px;
+  left: -30%;
+  width: 80%;
+  height: 80%;
+  background-image: url('picture/westcraft-logo-w-square-black.png');
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: left;
-  background-attachment: fixed;
-  opacity: 0.1;
-  z-index: 0;
+  background-position: bottom right;
+  opacity: 0.05;
+  z-index: -100;
 }
 
 .gallery-h1 {
@@ -495,6 +347,9 @@ img {
 .fa-arrow-right-long,
 .fa-arrow-left-long {
   color: #111827;
+  border: solid 1px rgb(0, 0, 0);
+  padding: 2vh;
+  border-radius: 50px;
 }
 
 .arrow.left {
@@ -681,6 +536,137 @@ img {
 
 
 
+/* Leadership Section */
+.leadership-section {
+  padding: 8rem 2rem;
+  display: flex;
+  justify-content: center;
+  background-image: url(picture/background-image.jpg);
+}
+
+.leadership-content {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.leadership-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.leadership-header h3 {
+  font-size: 2.8rem;
+  color: #1e293b;
+  line-height: 1.3;
+}
+
+.leadership-header h3 span {
+  font-weight: 400;
+  color: #2a2a2a;
+}
+
+.leadership-line {
+  width: 80px;
+  height: 3px;
+  background-color: #000;
+  border: none;
+  border-radius: 10px;
+  margin: 1.5rem auto 2rem;
+}
+
+.leadership-header p {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* Leader Row Layout */
+.leader-row {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 5rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.leader-row:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.leader-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.leader-img {
+  flex: 1;
+}
+
+.leader-img img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.leader-info {
+  flex: 1;
+  padding: 3rem;
+}
+
+.leader-info h4 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.leader-info .title {
+  font-size: 1rem;
+  color: #6b7280;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.leader-info p {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .leader-row {
+    flex-direction: column;
+  }
+
+  .leader-row.reverse {
+    flex-direction: column;
+  }
+
+  .leader-info {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .leader-info h4 {
+    font-size: 1.6rem;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 /* Contact Form Section */
@@ -696,8 +682,8 @@ img {
 
 /* Contact Section wrapper */
 .contact-section {
-  padding: 4vh 5vh;
-  height: 70vh;
+  padding: 10vh 5vh !important;
+  height: auto;
   font-family: var(--ff-chakra-petch);
   display: flex;
   align-items: center; /* vertical centering */
@@ -977,6 +963,3 @@ img {
     width: 100%;
   }
 }
-
-
-
