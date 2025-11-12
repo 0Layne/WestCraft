@@ -18,6 +18,12 @@ html {
 }
 
 
+.header {
+  background-color: #1e293b !important; /* dark blue-gray */
+}
+
+
+
 .legal-section {
   padding: 60px 20px;
   padding-top: 25vh;
