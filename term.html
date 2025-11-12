@@ -11,7 +11,7 @@
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  
+
   <link rel="icon" type="image/png" href="/icon-logo/favicon-96x96.png" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/icon-logo/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/icon-logo/apple-touch-icon.png">
@@ -21,60 +21,62 @@
   <link rel="stylesheet" href="footer.css" />
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="script.js">
-
-
-        <!-- Controls Safari/iOS status bar -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <!-- Modern browsers theme color -->
-    <meta name="theme-color" content="#1e293b">
 </head>
 
 <body>
-        <!-- Header -->
+      <!-- Header -->
     <header class="header" id="main-header">
-      <a href="#" class="header__logo"><img src="picture/westcraft-logo.png" alt="WestCraft Logo"
-          class="logo-mobile"></a>
-          
-  
-      <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
-  
-      <nav class="nav" id="nav-menu">
-        <div class="nav__content bd-grid">
-  
-          <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
-  
-          <div class="header-left">
-            <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo" />
-            <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo logo-menu" />
-          </div>
-  
-          <div class="nav__menu">
-            <ul class="nav__list">
-              <li class="nav__item"><a href="index.html" class="nav__link active">Home</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#locations-section" class="nav__link">Process</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="service.html#showcase" target="_blank" class="nav__link">Showcase</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#Legacy" class="nav__link">Legacy</a></li>
-              <span class="dash-header">|</span>
-              <li class="nav__item"><a href="index.html#aboutussection" class="nav__link">About</a></li>
-              <a href="service.html#contact" target="_blank" class="cta" style="display: none;">Schedule a Consultation</a>
-            </ul>
-          </div>
-  
-        <div class="nav-social" id="nav-social">
-          <a href="service.html#contact" target="_blank" class="cta">Schedule a Consultation</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+  <a href="#" class="header__logo">
+    <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo-mobile">
+  </a>
 
-  <section class="legal-section container">
+  <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+
+  <nav class="nav" id="nav-menu">
+    <div class="nav__content bd-grid">
+      <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+
+      <div class="header-left">
+        <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo" />
+        <img src="picture/westcraft-logo.png" alt="WestCraft Logo" class="logo logo-menu" />
+      </div>
+
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html" class="nav__link nav__link-1 active">Home</a></li>
+          <span class="dash-header">|</span>
+          <li class="nav__item"><a href="index.html#locations-section" class="nav__link nav__link-1">Process</a></li>
+          <span class="dash-header">|</span>
+
+          <!-- 🔹 TILE DROPDOWN -->
+          <li class="nav__item dropdown">
+            <a href="divsion.html" class="nav__link dropdown-toggle">Divisions</a>
+            <ul class="dropdown-menu">
+              <li><a href="divsion.html#tile-section">Tile</a></li>
+              <li><a href="divsion.html#stone-section">Stone</a></li>
+              <li><a href="build.html#remodel-section">Remodel</a></li>
+              <li><a href="build.html#home-section">Home</a></li>
+            </ul>
+          </li>
+
+          <span class="dash-header">|</span>
+        <li class="nav__item"><a href="service.html#showcase" target="_blank" class="nav__link nav__link-1">About</a></li>
+
+          <a href="service.html#contact" target="_blank" class="cta" style="display: none;">Schedule a Consultation</a>
+        </ul>
+      </div>
+
+      <div class="nav-social" id="nav-social">
+        <a href="service.html#contact" target="_blank" class="cta">Lets Chat</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+  <section class="legal-section container hero-section">
     <h1>Terms of Service</h1>
 
-    <p>By accessing and using the AzWestCraft website, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree, you are prohibited from using this site.</p>
+    <p>By accessing and using the WestCraft website, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree, you are prohibited from using this site.</p>
 
     <h2>Use License</h2>
     <ul>
@@ -122,8 +124,4 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>
-
-
-
